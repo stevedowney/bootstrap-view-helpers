@@ -52,7 +52,7 @@ module Bootstrap::DropdownHelper
   def dropdown_item(*args)
     options = args.extract_options!
     text = args.shift or raise "Need text to link to"
-    url = args.shift || js_void
+    url = args.shift || 'javascript:void(0)'
     
     content_tag(:li) do
       link_to(text, url, options)
