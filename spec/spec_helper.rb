@@ -4,6 +4,10 @@ require 'spork'
 Spork.prefork do
   ENV["RAILS_ENV"] ||= 'test'
 
+  require "rails/application"
+  # Spork.trap_method(Rails::Application, :reload_routes!)
+  Spork.trap_method(Rails::Application, :eager_load!)
+
   require File.expand_path("../dummy/config/environment", __FILE__)
   require 'rspec/rails'
   require 'rspec/autorun'
@@ -21,5 +25,9 @@ Spork.prefork do
 end
 
 Spork.each_run do
-  # This code will be run each time you run your specs.
+  # dir = '/Users/steve/Documents/engines/bootstrap-view-helpers'
+  # Dir["#{dir}/app/**/*.rb"].each do |f|
+  #   puts f
+  #   require f
+  # end
 end

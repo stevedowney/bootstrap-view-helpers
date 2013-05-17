@@ -28,7 +28,7 @@ module Bootstrap::BadgeHelper
   private
   
   def add_badge_classes(*args)
-    options = args.extract_options!
+    options = canonicalize_options(args.extract_options!)
     validate_badge_types(args)
     classes = ['badge'] + args.map { |arg| "badge-#{arg}" }
     ensure_class(options, classes)

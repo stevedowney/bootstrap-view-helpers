@@ -1,9 +1,10 @@
 module Bootstrap::FormHelper
   
   def submit_tag(value = "Save changes", options = {})
-    options = arrayify_class(options.symbolize_keys)
+    options = canonicalize_options(options)
     
-    class_arg = Array(options.delete(:class)).map(&:to_s)
+    class_arg = options.delete(:class)
+    options[:class] = []  # ensure_class requires Array
     classes = []
     classes << 'btn-primary' unless options.delete(:bootstrap) == false ||
        class_arg.detect { |e| e.starts_with?('btn-') }

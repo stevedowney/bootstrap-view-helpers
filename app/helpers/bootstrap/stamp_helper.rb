@@ -32,7 +32,7 @@ module Bootstrap::StampHelper
   private
   
   def add_label_classes(*args)
-    options = args.extract_options!
+    options = canonicalize_options(args.extract_options!)
     validate_label_types(args)
     classes = ['label'] + args.map { |arg| "label-#{arg}" }
     ensure_class(options, classes)

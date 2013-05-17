@@ -2,37 +2,30 @@ require 'spec_helper'
 
 describe Bootstrap::CommonHelper do
   
-  describe '#arrayify_class' do
-    def arrayify_class(h); helper.arrayify_class(h) end
-    
-    it "requires Hash" do
-      expect { arrayify_class('x') }.to raise_error(Bootstrap::CommonHelper::ArgumentError)
-    end
+  describe '#arrayify_class_and_stringify_elements' do
+    def ac_and_se(h); helper.arrayify_class_and_stringify_elements(h) end
     
     it "preserves false" do
-      arrayify_class(class: false).should == {class: false}
+      ac_and_se(false).should == false
     end
     
     it "no class" do
-      arrayify_class({}).should == {class: []}
-    end
-    
-    it "blank class" do
-      arrayify_class(class: '').should == {class: []}
-      arrayify_class(class: nil).should == {class: []}
+      ac_and_se(nil).should == []
+      ac_and_se(' ').should == []
+      ac_and_se([]).should == []
     end
     
     it "string" do
-      arrayify_class(class: 'klass').should == {class: ['klass']}
+      ac_and_se('klass').should == ['klass']
     end
     
     it "array" do
-      arrayify_class(class: %w(one   two)).should == {class: ['one', 'two']}
+      ac_and_se(%w(one   two)).should == ['one', 'two']
     end
     
     it "converts to strings" do
-      arrayify_class(class: :symbol).should == {class: ['symbol']}
-      arrayify_class(class: [:symbol, 3]).should == {class: ['symbol', '3']}
+      ac_and_se(:symbol).should == ['symbol']
+      ac_and_se([:symbol, 3]).should == ['symbol', '3']
     end
   end
   
@@ -53,22 +46,21 @@ describe Bootstrap::CommonHelper do
   describe '#ensure_class' do
     
     it "adds class" do
-      helper.ensure_class({}, 'foo')[:class].should == ['foo']
-      helper.ensure_class({class: 'bar'}, 'foo')[:class].should == ['bar', 'foo']
-      helper.ensure_class({class: ['bar', 'baz']}, 'foo')[:class].should == ['bar', 'baz', 'foo']
+      helper.ensure_class({class: []}, 'foo')[:class].should == ['foo']
+      helper.ensure_class({class: ['bar']}, 'foo')[:class].should == ['bar', 'foo']
       helper.ensure_class({class: ['bar', 'baz']}, ['foo'])[:class].should == ['bar', 'baz', 'foo']
     end
     
     it "doesn't re-add" do
-      helper.ensure_class({class: 'foo'}, 'foo')[:class].should == ['foo']
+      helper.ensure_class({class: ['foo']}, 'foo')[:class].should == ['foo']
     end
     
     it "preservers other hash keys" do
-      helper.ensure_class({id: 'foo'}, 'bar').should == {id: 'foo', class: ['bar']}
+      helper.ensure_class({class: [], id: 'foo'}, 'bar').should == {id: 'foo', class: ['bar']}
     end
     
     it "doesn't mutate" do
-      hash = {}
+      hash = {class: []}
       hash2 = helper.ensure_class(hash, 'foo')
       hash.object_id.should_not == hash2.object_id
     end

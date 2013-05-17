@@ -1,6 +1,7 @@
 module Bootstrap::AccordionHelper
   
   def accordion(options={})
+    options = canonicalize_options(options)
     options = ensure_accordion_id(options)
     @accordion_id = options[:id]
     options = ensure_class(options, 'accordion')
@@ -11,6 +12,7 @@ module Bootstrap::AccordionHelper
   end
   
   def accordion_group(text, options={})
+    options = canonicalize_options(options)
     options = ensure_accordion_group_id(options)
     @accordion_group_id = options[:id]
     open = options.delete(:open)

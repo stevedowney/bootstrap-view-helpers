@@ -49,7 +49,7 @@ module Bootstrap::ButtonHelper
   
   def button(*args)
     text = args.shift
-    options = args.extract_options!
+    options = canonicalize_options(args.extract_options!)
     href = options.delete(:url)
     options = add_button_classes(options, args)
 
