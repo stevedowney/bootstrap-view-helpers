@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = "Rails view helpers for Bootstrap"
   s.description = "Rails view helpers for Bootstrap"
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
 
   s.add_dependency "rails"
 
