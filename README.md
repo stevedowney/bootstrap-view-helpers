@@ -44,3 +44,23 @@ Supports the Bootstrap badge types:
 <%= badge('Default') %>
 <%= badge('Info', :info) %>
 <%= badge('Warning', :warning, id: 'warn-id', class: 'more-class', my_key: 'my_value') %>
+```
+
+### Labels (Stamps)
+
+Because `label` is a Rails helper method we use `stamp` -- because Elle thinks it looks like a stamp.
+
+Supports the Bootstrap label types:
+  * default
+  * success
+  * warning
+  * important
+  * info
+  * inverse
+  
+```erb
+<%= stamp('Default') %>
+<%= stamp('Info', :info) %>
+<%= stamp('Warning', :warning, id: 'warn-id', class: 'more-class', my_key: 'my_value') %>
+```
+  
