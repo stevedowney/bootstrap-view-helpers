@@ -7,11 +7,11 @@ require "bootstrap-view-helpers/version"
 Gem::Specification.new do |s|
   s.name        = "bootstrap-view-helpers"
   s.version     = BootstrapViewHelpers::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of BootstrapViewHelpers."
-  s.description = "TODO: Description of BootstrapViewHelpers."
+  s.authors     = ["Steve Downey"]
+  s.email       = ["steve.downtown@gmail.com"]
+  s.homepage    = "https://github.com/stevedowney/bootstrap_view_helpers"
+  s.summary     = "Rails view helpers for Bootstrap"
+  s.description = "Rails view helpers for Bootstrap"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
 
