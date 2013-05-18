@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = BootstrapViewHelpers::VERSION
   s.authors     = ["Steve Downey"]
   s.email       = ["steve.downtown@gmail.com"]
-  s.homepage    = "https://github.com/stevedowney/bootstrap_view_helpers"
+  s.homepage    = "https://github.com/stevedowney/bootstrap-view-helpers"
   s.summary     = "Rails view helpers for Bootstrap"
   s.description = "Rails view helpers for Bootstrap"
 
