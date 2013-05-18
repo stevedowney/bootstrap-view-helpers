@@ -7,6 +7,8 @@ Includes support for:
   * buttons
     * `<button>`
     * `<a>` styled as button
+  * button groups
+  * button toolbars
   * labels and badges
   * dropdowns
     * nav dropdowns
@@ -28,8 +30,55 @@ Run bundler:
 bundle install
 ```
 
+## API Documentation
+
+Complete [API documentation](http://rubydoc.info/gems/bootstrap-view-helpers/frames/file/README.md) at [RubyGems.org](https://rubygems.org/).
+
 ## Examples
 
+### Buttons
+
+```ruby
+# button
+button('Default')
+
+# add url option to make <a> styled as button
+button('Home', url: '/')
+
+# a button styled as a link
+button('Home', :link)
+
+# give it a type; see BUTTON_TYPES
+button('Info', :info)
+
+# give it a size (see BUTTON_SIZES)
+button('Small', :small)
+
+# size, type, additional class and additional html attributes
+button('Warning', :warning, :large, id: 'warn-id', class: 'more-class', my_key: 'my_value')
+```
+
+### Button Groups
+
+```erb
+<%= button_group do %>
+  <%= button("Left", url: "/left") %>
+  <%= button("Right", id: 'right') %>
+<% end %>
+```
+
+### Button Toolbars
+
+```erb
+<%= button_toolbar do %>
+  <%= button('Single Button', url: '/single') %>
+  <%= button_group do %>
+    <%= button('Group Button 1') %>
+    <%= button('Group Button 2') %>
+  <% end %>
+  <%= button('Another Single') %>
+<% end %>
+```
 ### Badges
 
 Supports the Bootstrap badge types: 
