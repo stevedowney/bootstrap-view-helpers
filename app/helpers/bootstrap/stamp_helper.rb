@@ -1,28 +1,32 @@
+# Rails helper for producing Twitter Bootstrap labels.  We use +#stamp()+ because +#label()+ is
+# a standard Rails helper method.
+#
 # See: http://twitter.github.io/bootstrap/components.html#labels-badges
 # 
-# Helper for producing Twitter Bootstrap labels.  We call them stamps because #label() is
-# a Rails helper method.
-#
-# Default label:
-#
+# @example
 #   stamp('Default')
-#
-# Other labels (see LABEL_TYPES):
-#
-#   stamp('Info', :info)
-#
-# Options passed through to <span> tag:
-#
+#   stamp('Info', :info)  
 #   stamp('Warning', :warning, id: 'warn-id', class: 'more-class', my_key: 'my_value')
 #
 module Bootstrap::StampHelper
   InvalidStampTypeError = Class.new(StandardError)
   
   LABEL_TYPES = %w(default success warning important info inverse)
-  
-  # stamp('Text')
-  # stamp('Text', :success)            # see LABEL_TYPES
-  # stamp('Text', :info, id: 'my-id')  # options passed thru to <span>
+
+  #=> see {Bootstrap::StampHelper::LABEL_TYPES}
+
+  # Returns a Bootstrap label
+  #
+  # @overload stamp(text, options={})
+  #   Returns a label of type :default
+  #   @param [String] text text of the label
+  #   @param [Hash] options html attributes for returned <span>
+  # @overload stamp(text, type, options={})
+  #   Returns a label of type _type_
+  #   @param [String] text text of the label
+  #   @param [Symbol, String] type type of label see {Bootstrap::StampHelper::LABEL_TYPES}
+  #   @param [Hash] options html attributes for returned <span>
+  # @return [String]
   def stamp(*args)
     text = args.shift
     options = add_label_classes(*args)
