@@ -4,6 +4,9 @@ This gem provides helper methods for various Bootstrap components.
 
 Includes support for:
 
+  * navigation
+    * nav bar
+    * nav list
   * buttons
     * `<button>`
     * `<a>` styled as button
@@ -42,6 +45,39 @@ bundle install
 Complete [API documentation](http://rubydoc.info/gems/bootstrap-view-helpers/frames/file/README.md) at [RubyGems.org](https://rubygems.org/).
 
 ## Examples
+
+### Navigation
+
+#### Navigation Bar
+```
+<%= nav_bar do %>      
+
+  <%= brand('Span Brand')%>
+  <%= brand('Link Brand', url: '#')%>
+
+  <%= nav_bar_links do %>
+
+    <%= nav_bar_link('Active', '#', active: true) %>
+    <%= nav_bar_link('Link1', '/link1') %>
+
+    <%= nav_bar_divider %>
+
+    <%= nav_dropdown('Foo') do %>
+      <%= dropdown_item('One', 'foo')%>
+    <% end %>
+
+     <% end %>
+   <% end %>
+```
+
+#### Navigation List (sidebar)
+```erb
+<%= nav_list(id: 'my') do %>
+  <%= nav_list_header('Buttons & Labels') %>
+  <%= dropdown_item('Buttons', 'butons')%>
+  <%= dropdown_item('Labels', 'butons')%>
+<% end %>
+```
 
 ### Buttons
 
