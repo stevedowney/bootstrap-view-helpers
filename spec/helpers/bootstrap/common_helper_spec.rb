@@ -1,4 +1,3 @@
-puts '*** SPEC'
 require 'spec_helper'
 
 describe Bootstrap::CommonHelper do

@@ -26,7 +26,7 @@ end
 
 Spork.each_run do
   ActiveSupport::Dependencies.clear
-  ActiveRecord::Base.instantiate_observers
+  # ActiveRecord::Base.instantiate_observers
   # dir = '/Users/steve/Documents/engines/bootstrap-view-helpers'
   # dir = Rails.root.join('../..')
   # Dir["#{dir}/app/**/*.rb"].each do |f|
