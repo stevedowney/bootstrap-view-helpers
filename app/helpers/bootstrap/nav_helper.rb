@@ -1,5 +1,38 @@
+# Rails view helpers for various Bootstrap navigation components.
+#
+# See: http://twitter.github.io/bootstrap/components.html#navbar
+# @example navigation bar (across top of page)
+#   <%= nav_bar do %>      
+#
+#     <%= brand('Span Brand')%>
+#     <%= brand('Link Brand', url: '#')%>
+#
+#     <%= nav_bar_links do %>
+#
+#       <%= nav_bar_link('Active', '#', active: true) %>
+#       <%= nav_bar_link('Link1', '/link1') %>
+#
+#       <%= nav_bar_divider %>
+#
+#       <%= nav_dropdown('Foo') do %>
+#         <%= dropdown_item('One', 'foo')%>
+#       <% end %>
+#
+#     <% end %>
+#   <% end %>
+#
+# @example navigation list (e.g., in sidebar)
+#   <%= nav_list(id: 'my') do %>
+#     <%= nav_list_header('Buttons & Labels') %>
+#     <%= dropdown_item('Buttons', 'butons')%>
+#     <%= dropdown_item('Labels', 'butons')%>
+#   <% end %>
 module Bootstrap::NavHelper
   
+  # Returns a Bootstrap navigation bar
+  # @yield yield block usually consists of other {Bootstrap::NavHelper} helpers
+  # @yieldreturn the contents of the navigation bar
+  # @return [String]
   def nav_bar()
     content_tag(:header, class: 'navbar') do
       content_tag(:nav, class: 'navbar-inner') do
@@ -8,6 +41,12 @@ module Bootstrap::NavHelper
     end
   end
   
+  # Returns a Bootstrap brand element
+  #
+  # @param [String] text text of the brand
+  # @param [Hash] options except for +:url+, becomes html attributes of returned tag
+  # @option options [String] :url if present, returned tag is an <a> (else <span>)
+  # @return [String] <a> if +:url+ option present, else <span>
   def brand(text, options = {})
     options = canonicalize_options(options)
     options = ensure_class(options, 'brand')
@@ -20,6 +59,12 @@ module Bootstrap::NavHelper
     end
   end
   
+  # Returns <ul> for a group of nav bar links.
+  #
+  # Usually called in +yield+ block of {Bootstrap::NavHelper#nav_bar}
+  #
+  # @yield block usually consists of calls to {Bootstrap::NavHelper#nav_bar_link} and {Bootstrap::NavHelper#nav_bar_divider}
+  # @return [String] <div class='nav'> containing results of yielded block
   def nav_bar_links(options={})
     options = canonicalize_options(options)
     options = ensure_class(options, 'nav')
@@ -29,6 +74,15 @@ module Bootstrap::NavHelper
     end
   end
   
+  # Returns a nav_bar_link
+  #
+  # Usually called within yield block of {Bootstrap::NavHelper#nav_bar}
+  #
+  # @param [String] text text of link
+  # @param [String] url url of link
+  # @param [Hash] options except for +:active+, becomes html attributes of link
+  # @option options [true] :active if set to true, displays as inactive
+  # @return [String] returns <a> within <li>
   def nav_bar_link(text, url, options={})
     a_options = canonicalize_options(options)
     active = a_options.delete(:active)
@@ -40,10 +94,18 @@ module Bootstrap::NavHelper
     end
   end
   
+  # Returns divider (vertical bar) for separating items in a nav_bar
+  #
+  # @return [String] <li class="divider-vertical"></li>
   def nav_bar_divider
     content_tag(:li, nil, class: "divider-vertical")
   end
   
+  # Returns nav list
+  #
+  # @param [Hash] options becomes html attributes of enclosing <div>
+  # @yield block consists of calls to {Bootstrap::NavHelper#nav_list_header} and {Bootstrap::NavHelper#dropdown_item} 
+  # @return [String] <div class='well'><ul class='nav nav-list'> containg results of yielded block
   def nav_list(options={})
     options = canonicalize_options(options)
     options = ensure_class(options, 'well')
@@ -54,6 +116,9 @@ module Bootstrap::NavHelper
     end
   end
   
+  # Returns header for nav_list
+  # @param [String] text text of header
+  # @return [String]
   def nav_list_header(text)
     content_tag(:li, text, class: 'nav-header')
   end
