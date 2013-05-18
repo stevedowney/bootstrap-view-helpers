@@ -18,6 +18,11 @@ Includes support for:
   * form helpers
     * submit_tag_button 
   
+## Note
+
+This is a new gem undergoing a lot of change.  There is a chance that some backwards
+compatibility will be broken until things settle down.  
+
 ## Installation
 
 Add it to your Gemfile:
