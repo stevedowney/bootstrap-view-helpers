@@ -1,5 +1,23 @@
 <h1>Examples</h1>
 
+<%= split_button_dropdown('Default', url: '/default') do %>
+  <%= dropdown_item('Action 1', '/action1') %>
+  <%= dropdown_item('Action 2', '/action2') %>
+<% end %>
+
+<%= button_dropdown('Actions foo', url: 'foo') do %>
+  <%= dropdown_item('Action 1', '/action1') %>
+  <%= dropdown_item('Action 2', '/action2') %>
+<% end %>
+
+<%= nav_dropdown('Admin') do %>
+  <%= dropdown_item('Users', 'admin_users_path') %>
+  <%= dropdown_item('Logs', 'admin_logs_path') %>
+  <%= dropdown_divider %>
+  <%= dropdown_item('Exceptions', 'admin_exceptions_path') %>
+<% end %>
+  
+
 <%= button_group do %>
   <%= button("Left", url: "/left") %>
   <%= button("Right", id: 'right') %>
