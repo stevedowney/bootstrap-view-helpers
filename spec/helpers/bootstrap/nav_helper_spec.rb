@@ -56,5 +56,17 @@ describe Bootstrap::NavHelper do
     end
   end
   
+  describe '#nav_list' do
+    it "div.well ul.nav.nav-list" do
+      html = Capybara.string(helper.nav_list(id: 'ID') { content_tag(:span, 'LIs')})
+      
+      html.find('div.well[id="ID"]').tap do |well|
+        well.find('ul.nav.nav-list').tap do |ul|
+          ul.should have_tag(:span, text: 'LIs')
+        end
+      end
+    end
+  end
+  
 end
     

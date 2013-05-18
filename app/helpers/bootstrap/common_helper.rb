@@ -1,3 +1,4 @@
+puts '*** HELPER'
 module Bootstrap::CommonHelper
   ArgumentError = Class.new(::ArgumentError)
   
@@ -33,8 +34,8 @@ module Bootstrap::CommonHelper
   
   # Ensures that _hash_ has key of :class that includes _klass_.
   # 
-  # Assumes there is a key :class (Symbol) whose value is an Array of String.
-  # #canonicalize_options will return such an array.
+  # Assumes _hash_ is a key :class (Symbol) whose value is an Array of String.
+  # #canonicalize_options will return such a Hash.
   #
   #   ensure_class({}, 'foo')                            #=> {class: 'foo'}
   #   ensure_class({class: 'bar', id: 'my-id'}, 'foo')   #=> {:class=>["bar", "foo"], :id=>"my-id"}
@@ -44,13 +45,6 @@ module Bootstrap::CommonHelper
         h[:class] << k unless h[:class].include?(k)
       end
     end
-    
-    # arrayify_class(hash).tap do |h|
-    #   klasses = Array(klass).map(&:to_s)
-    #   klasses.each do |k|
-    #     h[:class] << k unless h[:class].include?(k)
-    #   end
-    # end
   end
 
   # Returns extra arguments that are Bootstrap modifiers.  Basically 2nd argument

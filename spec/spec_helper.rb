@@ -5,8 +5,8 @@ Spork.prefork do
   ENV["RAILS_ENV"] ||= 'test'
 
   require "rails/application"
-  # Spork.trap_method(Rails::Application, :reload_routes!)
-  Spork.trap_method(Rails::Application, :eager_load!)
+  # Spork.trap_method('AbstractController::Helpers', :helper)
+  # Spork.trap_method(Rails::Application, :eager_load!)
 
   require File.expand_path("../dummy/config/environment", __FILE__)
   require 'rspec/rails'
@@ -25,7 +25,10 @@ Spork.prefork do
 end
 
 Spork.each_run do
+  ActiveSupport::Dependencies.clear
+  ActiveRecord::Base.instantiate_observers
   # dir = '/Users/steve/Documents/engines/bootstrap-view-helpers'
+  # dir = Rails.root.join('../..')
   # Dir["#{dir}/app/**/*.rb"].each do |f|
   #   puts f
   #   require f

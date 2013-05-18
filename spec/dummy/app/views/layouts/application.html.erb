@@ -8,8 +8,12 @@
 </head>
 <body>
   <%= render partial: 'nav_bar' %>
-  <%= render partial: 'side_bar' %>
-<%= yield %>
-
+  <div class='row'>
+    <div class='span3'>
+      <%= render partial: 'side_bar' %>
+    </div>
+    <div class='span9'>
+      <%= yield %>
+    </div>
 </body>
 </html>

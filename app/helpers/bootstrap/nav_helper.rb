@@ -44,13 +44,17 @@ module Bootstrap::NavHelper
     content_tag(:li, nil, class: "divider-vertical")
   end
   
-  # <ul class="nav nav-list">
-  #   <li class="nav-header">List header</li>
-  #   <li class="active"><a href="#">Home</a></li>
-  #   <li><a href="#">Library</a></li>
-  #   ...
-  # </ul>
   def nav_list(options={})
     options = canonicalize_options(options)
+    options = ensure_class(options, 'well')
+    content_tag(:div, options) do
+      content_tag(:ul, class: 'nav nav-list') do
+        yield
+      end
+    end
+  end
+  
+  def nav_list_header(text)
+    content_tag(:li, text, class: 'nav-header')
   end
 end
