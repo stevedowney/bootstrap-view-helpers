@@ -64,3 +64,20 @@ Supports the Bootstrap label types:
 <%= stamp('Warning', :warning, id: 'warn-id', class: 'more-class', my_key: 'my_value') %>
 ```
   
+### Accordions
+
+See: http://twitter.github.io/bootstrap/javascript.html#collapse
+
+```erb
+<%= accordion do %>
+
+  <%= accordion_group('Section 1', open: true) do %>
+    content for group 1
+  <% end >
+
+  <%= accordion_group('Section 1') do %>
+    content for group 2
+  <% end %>
+
+<% end %>
+```
