@@ -120,16 +120,16 @@ module Bootstrap::ButtonHelper
     end
   end
     
+  def validate_button_types_and_sizes(types_and_sizes)
+    types_and_sizes.each { |e| raise(InvalidButtonModifierError, e.inspect) unless BUTTON_ALL.include?(e.to_s) }
+  end
+
   private
   
   def add_button_classes(options, button_types_and_sizes)
-    validate_types_and_sizes(button_types_and_sizes)
+    validate_button_types_and_sizes(button_types_and_sizes)
     classes = ['btn'] + button_types_and_sizes.map { |e| "btn-#{e}" }
     ensure_class(options, classes)
-  end
-  
-  def validate_types_and_sizes(types_and_sizes)
-    types_and_sizes.each { |e| raise(InvalidButtonModifierError, e.inspect) unless BUTTON_ALL.include?(e.to_s) }
   end
   
 end
