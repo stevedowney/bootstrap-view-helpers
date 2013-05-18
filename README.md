@@ -15,7 +15,14 @@ Includes support for:
     * button dropdowns
     * split-button dropdowns
   * accordion
+  * form helpers
+    * submit_tag_button 
   
+## Note
+
+This is a new gem undergoing a lot of change.  There is a chance that some backwards
+compatibility will be broken until things settle down.  
+
 ## Installation
 
 Add it to your Gemfile:
@@ -134,3 +141,21 @@ See: http://twitter.github.io/bootstrap/javascript.html#collapse
 
 <% end %>
 ```
+
+### Form Helpers
+
+#### submit_tag_button
+
+Returns <input> similar to +#submit_tag()+ but:
+  * styled like a Bootstrap button, type `:primary`
+  * has `:disable_with` set to "Processing ..."
+  
+```ruby
+submit_button_tag   # => <input class="btn btn-primary" data-disable-with="Processing ..." name="commit" type="submit" value="Save changes" />
+submit_button_tag('Save')
+submit_button_tag('Delete', :danger)
+submit_button_tag('Big', :large)
+submit_button_tag('With Options', :small, :info, id: 'my-id')
+```
+
+
