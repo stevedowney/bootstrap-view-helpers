@@ -5,9 +5,6 @@ Spork.prefork do
   ENV["RAILS_ENV"] ||= 'test'
 
   require "rails/application"
-  # Spork.trap_method('AbstractController::Helpers', :helper)
-  # Spork.trap_method(Rails::Application, :eager_load!)
-
   require File.expand_path("../dummy/config/environment", __FILE__)
   require 'rspec/rails'
   require 'rspec/autorun'
