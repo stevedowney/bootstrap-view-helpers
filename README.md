@@ -79,23 +79,11 @@ button('Warning', :warning, :large, id: 'warn-id', class: 'more-class', my_key: 
   <%= button('Another Single') %>
 <% end %>
 ```
-### Badges
+### Labels and Badges
 
-Supports the Bootstrap badge types: 
-  * default
-  * success
-  * warning
-  * important
-  * info
-  * inverse
-  
-```erb
-<%= badge('Default') %>
-<%= badge('Info', :info) %>
-<%= badge('Warning', :warning, id: 'warn-id', class: 'more-class', my_key: 'my_value') %>
-```
+http://twitter.github.io/bootstrap/components.html#labels-badges
 
-### Labels (Stamps)
+#### Labels (Stamps)
 
 Because `label` is a Rails helper method we use `stamp` -- because Elle thinks it looks like a stamp.
 
@@ -112,7 +100,23 @@ Supports the Bootstrap label types:
 <%= stamp('Info', :info) %>
 <%= stamp('Warning', :warning, id: 'warn-id', class: 'more-class', my_key: 'my_value') %>
 ```
+
+#### Badges
+Supports the Bootstrap badge types: 
+  * default
+  * success
+  * warning
+  * important
+  * info
+  * inverse
   
+```erb
+<%= badge('Default') %>
+<%= badge('Info', :info) %>
+<%= badge('Warning', :warning, id: 'warn-id', class: 'more-class', my_key: 'my_value') %>
+```
+
+
 ### Accordions
 
 See: http://twitter.github.io/bootstrap/javascript.html#collapse
