@@ -1,6 +1,19 @@
 <h1>Examples</h1>
 
+<%= button_group do %>
+  <%= button("Left", url: "/left") %>
+  <%= button("Right", id: 'right') %>
+<% end %>
 
+<%= button_toolbar do %>
+  <%= button('Single Button', url: '/single') %>
+  <%= button_group do %>
+    <%= button('Group Button 1') %>
+    <%= button('Group Button 2') %>
+  <% end %>
+  <%= button('Another Single') %>
+<% end %>
+#
 <div>
 <%= badge('Default') %>
 </div><div>

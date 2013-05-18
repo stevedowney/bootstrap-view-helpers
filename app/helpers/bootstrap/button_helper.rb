@@ -1,43 +1,44 @@
 # Helper for producing Twitter Bootstrap buttons OR links that look like buttons.
-# See: http://twitter.github.io/bootstrap/base-css.html#buttons
 #
-# Default button:
+# See:
+# * http://twitter.github.io/bootstrap/base-css.html#buttons
+# * http://twitter.github.io/bootstrap/components.html#buttonGroups
+# * http://twitter.github.io/bootstrap/components.html#buttonDropdowns
+# @example Button / Link
 #
-#   button('Default') #=> <button class="btn">Default</button>
+#   # button
+#   button('Default')
 #
-# Pass in a url to make a link that looks like a button:
+#   # add url option to make <a> styled as button
+#   button('Home', url: '/')
 #
-#   button('Home', url: '/home')    #=> <a href="/home" class="btn">Home</a>
-#
-# Or make a <button> look like a link:
-#
+#   # a button styled as a link
 #   button('Home', :link)
 #
-# Specify the type (see BUTTON_TYPES):
-#
+#   # give it a type; see BUTTON_TYPES
 #   button('Info', :info)
 #
-# Specify the size (see BUTTON_SIZES)
-#
+#   # give it a size (see BUTTON_SIZES)
 #   button('Small', :small)
 #
-# Options passed through to <span> tag:
+#   # size, type, additional class and additional html attributes
+#   button('Warning', :warning, :large, id: 'warn-id', class: 'more-class', my_key: 'my_value')
 #
-#   button('Warning', :warning, :large id: 'warn-id', class: 'more-class', my_key: 'my_value')
+# @example Button Group
+#   <%= button_group do %>
+#     <%= button("Left", url: "/left") %>
+#     <%= button("Right", id: 'right') %>
+#   <% end %>
 #
-# Button groups/toolbars: http://twitter.github.io/bootstrap/components.html#buttonGroups
-#
-#   = button_group do
-#     = button("Left", "/left")
-#     = button("Right", "/right")
-#
-#   = button_toolbar do
-#     = button('Single Button', '/single')
-#     = button_group
-#       = button('Group Button 1')
-#       = button('Group Button 2')
-#     = button('Another Single')
-#
+# @example Button Toolbar
+#    <%= button_toolbar do %>
+#      <%= button('Single Button', url: '/single') %>
+#      <%= button_group do %>
+#        <%= button('Group Button 1') %>
+#        <%= button('Group Button 2') %>
+#      <% end %>
+#      <%= button('Another Single') %>
+#   <% end %>
 module Bootstrap::ButtonHelper
   InvalidButtonModifierError = Class.new(StandardError)
 
@@ -47,6 +48,33 @@ module Bootstrap::ButtonHelper
   
   BUTTON_ALL = BUTTON_TYPES + BUTTON_SIZES + BUTTON_OTHERS
   
+  # Returns <button> or <a> styled as Bootstrap button
+  #
+  # @overload button(text, options={})
+  #   Default button
+  #   @param [String] text text of button
+  #   @param [Hash] options All keys except +:url+ become html attributes for the generated tag
+  #   @option options [String] :url if present, return a <a> styled as a button
+  # @overload button(text, type, options={})
+  #   Button of type _type_
+  #   @param [String] text text of button
+  #   @param [String, Symbol] type type of button; see {Bootstrap::ButtonHelper::BUTTON_TYPES}
+  #   @param [Hash] options All keys except +:url+ become html attributes for the generated tag
+  #   @option options [String] :url if present, return a <a> styled as a button
+  # @overload button(text, size, options={})
+  #   Button of size _size_
+  #   @param [String] text text of button
+  #   @param [String, Symbol] size size of button; see {Bootstrap::ButtonHelper::BUTTON_SIZES}
+  #   @param [Hash] options All keys except +:url+ become html attributes for the generated tag
+  #   @option options [String] :url if present, return a <a> styled as a button
+  # @overload button(text, type, size, options={})
+  #   Button of type _type_, size _size_
+  #   @param [String] text text of button
+  #   @param [String, Symbol] type type of button; see {Bootstrap::ButtonHelper::BUTTON_TYPES}
+  #   @param [String, Symbol] size size of button; see {Bootstrap::ButtonHelper::BUTTON_SIZES}
+  #   @param [Hash] options All keys except +:url+ become html attributes for the generated tag
+  #   @option options [String] :url if present, return a <a> styled as a button
+  # @return [String] Html for a <button> (or <a> if +url+ option passed in)
   def button(*args)
     text = args.shift
     options = canonicalize_options(args.extract_options!)
@@ -60,14 +88,34 @@ module Bootstrap::ButtonHelper
     end
   end
     
-  def button_toolbar
-    content_tag(:div, class: 'btn-toolbar') do
+  # Returns a Bootstrap button toolbar
+  #
+  # @param [Hash] options will be come html attributes of generated <div>
+  # @yield block usually consists of calls to {Bootstrap::ButtonHelper#button} or {Bootstrap::ButtonHelper#button_group}
+  # @yieldreturn [String] html for contents of toolbar
+  #
+  # @return [String] html for button toolbar
+  def button_toolbar(options={})
+    options = canonicalize_options(options)
+    options = ensure_class(options, 'btn-toolbar')
+    
+    content_tag(:div, options) do
       yield
     end
   end
   
-  def button_group
-    content_tag(:div, class: 'btn-group') do
+  # Returns a Bootstrap button group
+  #
+  # @param [Hash] options will be come html attributes of generated <div>
+  # @yield block usually consists of calls to {Bootstrap::ButtonHelper#button}
+  # @yieldreturn [String] html for contents of group
+  #
+  # @return [String] html for button group
+  def button_group(options={})
+    options = canonicalize_options(options)
+    options = ensure_class(options, 'btn-group')
+    
+    content_tag(:div, options) do
       yield
     end
   end

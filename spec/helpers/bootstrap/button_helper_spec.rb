@@ -30,22 +30,23 @@ describe Bootstrap::ButtonHelper do
   end
   
   describe '#button_toolbar' do
-    let(:button_toolbar) { helper.button_toolbar { content_tag(:div, 'BUTTONS') } }
+    let(:button_toolbar) { helper.button_toolbar(id: 'ID') { content_tag(:div, 'BUTTONS') } }
     let(:html) { Capybara.string(button_toolbar) }
     
     it "should have correct html" do
-      html.find('div.btn-toolbar').tap do |div|
+      html.find('div.btn-toolbar[id="ID"]').tap do |div|
         div.find('div', text: 'BUTTONS').should_not be_nil
       end
     end
+    
   end
   
   describe '#button_group' do
-    let(:button_group) { helper.button_group { content_tag(:div, 'BUTTONS') } }
+    let(:button_group) { helper.button_group(id: "ID") { content_tag(:div, 'BUTTONS') } }
     let(:html) { Capybara.string(button_group) }
     
     it "should have correct html" do
-      html.find('div.btn-group').tap do |div|
+      html.find('div.btn-group[id="ID"]').tap do |div|
         div.find('div', text: 'BUTTONS').should_not be_nil
       end
     end
