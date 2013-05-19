@@ -7,6 +7,8 @@ Includes support for:
   * navigation
     * nav bar
     * nav list
+  * icons
+    * icons with text 
   * buttons
     * `<button>`
     * `<a>` styled as button
@@ -77,6 +79,30 @@ Complete [API documentation](http://rubydoc.info/gems/bootstrap-view-helpers/fra
   <%= dropdown_item('Buttons', 'butons')%>
   <%= dropdown_item('Labels', 'butons')%>
 <% end %>
+```
+
+### Icons
+
+See: http://twitter.github.io/bootstrap/base-css.html#icons
+
+Icons
+```ruby
+icon(:search)
+icon(:search, :white)
+icon(:search, :white, id: 'my-id')
+```
+
+Icons with Text
+```ruby
+icon(:search, 'Search')
+icon(:remove, :white, 'Delete')
+icon(:ok, 'Save', id: 'my-id')
+```
+
+Line up text when some have icons and some don't
+```ruby
+icon(:search, 'With icon')  # shows search icon
+icon(:blank, 'No icon')     # no icon, text will aligin if icons are stacked
 ```
 
 ### Buttons
