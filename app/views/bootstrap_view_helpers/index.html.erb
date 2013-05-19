@@ -1,5 +1,20 @@
 <h1>Examples</h1>
 
+<p>
+  <%= icon('search') %>
+  <%= stamp(icon('search', :white))%>
+  <%= stamp(icon('search', 'white', 'Search'))%>
+</p>
+<p>
+  <%= stamp(icon(:remove, :white, 'Delete'), :important)%>
+  <br />
+  <%= stamp(icon(:spacer, :white, 'Spacer'), :important)%>
+</p>
+<p>
+  <%= stamp(icon(:remove, 'Delete'), :important)%>
+  <br />
+  <%= stamp(icon(:spacer, 'Spacer'), :important)%>
+</p>
 <%= split_button_dropdown('Default', url: '/default') do %>
   <%= dropdown_item('Action 1', '/action1') %>
   <%= dropdown_item('Action 2', '/action2') %>

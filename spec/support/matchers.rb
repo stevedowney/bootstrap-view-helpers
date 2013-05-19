@@ -40,7 +40,8 @@ module SelectorMethods
 #   # end
 #   
   def have_tag(tag, attributes = {})
-    text = attributes.delete(:text)
+    has_text = attributes.has_key?(:text)
+    text = has_text && attributes.delete(:text)
     classes = Array(attributes.delete(:class))
     
     selector = tag.to_s
@@ -53,7 +54,7 @@ module SelectorMethods
     end
 
     args = [selector]
-    args << {:text => text} if text
+    args << {:text => text} if has_text
 
     have_selector *args
   end

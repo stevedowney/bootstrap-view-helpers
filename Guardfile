@@ -12,6 +12,7 @@ guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAIL
   watch('Gemfile')
   watch('Gemfile.lock')
   watch('spec/spec_helper.rb') { :rspec }
+  watch(%r{spec/support/.+\.rb$}) { :rspec }
   watch('test/test_helper.rb') { :test_unit }
   watch(%r{features/support/}) { :cucumber }
 end
@@ -21,6 +22,8 @@ guard 'rspec', cli: "--color --drb" do
   watch(%r{^lib/(.+).rb$})    { |m| "spec/lib/#{m[1]}_spec.rb" }
   watch('spec/spec_helper.rb') { "spec" }
 
+
+  watch(%r{^app/helpers/bootstrap/icon_renderer.rb}) { "spec/helpers/bootstrap/icon_helper_spec.rb" }
   # Rails example
   watch(%r{^app/(.+)\.rb$})                           { |m| "spec/#{m[1]}_spec.rb" }
   

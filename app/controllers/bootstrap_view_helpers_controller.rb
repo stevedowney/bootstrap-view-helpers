@@ -1,3 +1,4 @@
+# @private
 class BootstrapViewHelpersController < ApplicationController
   
   def index
