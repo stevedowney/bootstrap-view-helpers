@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/stevedowney/bootstrap-view-helpers.png)](https://codeclimate.com/github/stevedowney/bootstrap-view-helpers)
+
 # bootstrap-view-helpers
 
 This gem provides helper methods for various Bootstrap components.
