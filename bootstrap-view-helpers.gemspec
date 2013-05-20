@@ -28,5 +28,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'better_errors'
   s.add_development_dependency "yard"
   s.add_development_dependency "redcarpet"
-  
+  s.add_development_dependency 'quiet_assets'
+  s.add_development_dependency 'thin'
 end

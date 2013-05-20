@@ -1,0 +1,200 @@
+<h1>Buttons</h1>
+
+<p><%= link_to('Bootstrap Documentation', 'http://twitter.github.io/bootstrap/base-css.html#buttons')%></p>
+
+<h2>Default Buttons</h2>
+
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th width="125px"> Button</th>
+      <th> Code</th>
+    </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= button('Default') %>
+      <td>
+        <code>button('Default')</code>
+      </td>
+    </tr>
+    <tr>
+      <td><%= button('Success', :success) %>
+      <td>
+        <code>button('Success', :success) </code>
+      </td>
+    </tr>
+    <tr>
+      <td><%= button('Warning', :warning) %>
+      <td>
+        <code>button('Warning', :warning)</code>
+      </td>
+    </tr>
+    <tr>
+      <td><%= button('Danger', :danger) %>
+      <td>
+        <code>button('Danger', :danger)</code>
+      </td>
+    </tr>
+    <tr>
+      <td><%= button('Info', :info) %>
+      <td>
+        <code>button('Info', :info)</code>
+      </td>
+    </tr>
+    <tr>
+      <td><%= button('Inverse', :inverse) %>
+      <td>
+        <code>button('Inverse', :inverse)</code>
+      </td>
+    </tr>
+    <tr>
+      <td> Options
+      <td>
+        <code>button('Success', :success, id: 'success-label', key: 'value')</code>
+      </td>
+    </tr>
+
+    <tr>
+      <td><%= button('Link as button', url: '/somewhere') %>
+      <td>
+        <code>button('Link as button', url: '/somewhere')</code>
+        </td>
+      </tr>
+
+    <tr>
+      <td><%= button('Button as a link', :link) %>
+      <td>
+        <code>button('Button as a link', :link)</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Button Sizes</h2>
+
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th width="125px">Button</th>
+      <th>Code</th>
+    </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= button('Large', :large) %>
+      <td>
+        <code>button('Large', :large)</code>
+      </td>
+    </tr>
+    <tr>
+      <td><%= button('Default') %>
+      <td>
+        <code>button('Default')</code>
+      </td>
+    </tr>
+    <tr>
+      <td><%= button('Small', :small) %>
+      <td>
+        <code>button('Small', :small)</code>
+      </td>
+    </tr>
+    <tr>
+      <td><%= button('Mini', :mini) %>
+      <td>
+        <code>button('Mini', :mini)</code>
+      </td>
+    </tr>
+    <tr>
+      <td><%= button('Block', :block) %>
+      <td>
+        <code>button('Block', :block) # (occupies 100% width of container)</code>
+      </td>
+    </tr>
+    <tr>
+      <td><%= button('Small Info', :small, :info) %>
+      <td>
+        <code>button('Small Info', :small, :info)</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+      
+<h2>Button Bars and Button Groups</h2>
+
+<p><%= link_to('Bootstrap Documentation', 'http://twitter.github.io/bootstrap/components.html#buttonGroups') %>
+
+<div class="bs-docs-example">
+  <%= button_group do %>
+    <%= button('Left') %>
+    <%= button('Middle') %>
+    <%= button('Right') %>
+  <% end %>
+
+  <br><br>
+  
+  <pre>
+    <%%= button_group do %>
+      <%%= button('Left') %>
+      <%%= button('Middle') %>
+      <%%= button('Right') %>
+    <%% end %>
+  </pre>
+</div>
+
+<br>
+
+<div class<="bs-docs-example">
+  <%= button_toolbar do %>
+    <%= button('One', :primary) %>
+    <%= button_group do %>
+      <%= button('Two', :info) %>
+      <%= button('Three', :info) %>
+    <% end %>
+    <%= button('Four', :danger) %>
+  <% end %>
+  
+  <pre>
+    <%%= button_toolbar do %>
+      <%%= button('One', :primary) %>
+      <%%= button_group do %>
+        <%%= button('Two', :info) %>
+        <%%= button('Three', :info) %>
+      <%% end>
+      <%%= button('Four', :danger) %>
+    <%% end %>
+  </pre>
+</div>
+
+<h2>Button Dropdowns</h2>
+<p><%= link_to('Bootstrap Documentation', 'http://twitter.github.io/bootstrap/components.html#buttonDropdowns') %>
+
+<div class="bs-docs-example">
+  <%= button_toolbar do %>
+    <%= button_dropdown('Actions', :info) do %>
+      <%= dropdown_item 'Button' %>
+      <%= dropdown_item 'Link', '/url' %>
+    <% end %>
+    <%= split_button_dropdown('Edit', url: '/edit') do %>
+      <%= dropdown_item 'Flag', '/flag' %>
+      <%= dropdown_item 'Copy', '/copy' %>
+      <%= dropdown_divider %>
+      <%= dropdown_item 'Delete', '/delete' %>
+    <% end %>
+  <% end %>
+
+  <pre>
+    <%%= button_toolbar do %>
+      <%%= button_dropdown('Actions', :info) do %>
+        <%%= dropdown_item 'Button' %>
+        <%%= dropdown_item 'Link', '/url' %>
+      <%% end %>
+      <%%= split_button_dropdown('Edit', url: '/edit') do %>
+        <%%= dropdown_item 'Flag', '/flag' %>
+        <%%= dropdown_item 'Copy', '/copy' %>
+        <%%= dropdown_divider %>
+        <%%= dropdown_item 'Delete', '/delete' %>
+      <%% end %>
+    <%% end %>
+  </pre> 
+</div>

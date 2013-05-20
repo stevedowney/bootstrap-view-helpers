@@ -1,122 +1,12 @@
 <h1>Examples</h1>
 
-<p>
-  <%= icon('search') %>
-  <%= stamp(icon('search', :white))%>
-  <%= stamp(icon('search', 'white', 'Search'))%>
-</p>
-<p>
-  <%= stamp(icon(:remove, :white, 'Delete'), :important)%>
-  <br />
-  <%= stamp(icon(:spacer, :white, 'Spacer'), :important)%>
-</p>
-<p>
-  <%= stamp(icon(:remove, 'Delete'), :important)%>
-  <br />
-  <%= stamp(icon(:spacer, 'Spacer'), :important)%>
-</p>
-<%= split_button_dropdown('Default', url: '/default') do %>
-  <%= dropdown_item('Action 1', '/action1') %>
-  <%= dropdown_item('Action 2', '/action2') %>
-<% end %>
+<p>This is the html for the layout.</p>
 
-<%= button_dropdown('Actions foo', url: 'foo') do %>
-  <%= dropdown_item('Action 1', '/action1') %>
-  <%= dropdown_item('Action 2', '/action2') %>
-<% end %>
+<h2>Nav Bar</h2>
+<p>This is the source for the navbar on this page.</p>
+<%= bvh_navbar_example %>
 
-<%= nav_dropdown('Admin') do %>
-  <%= dropdown_item('Users', 'admin_users_path') %>
-  <%= dropdown_item('Logs', 'admin_logs_path') %>
-  <%= dropdown_divider %>
-  <%= dropdown_item('Exceptions', 'admin_exceptions_path') %>
-<% end %>
-  
+<h2>Sidebar</h2>
+<p>This is the source for the sidebar on this page.</p>
+<%= bvh_sidebar_example %>
 
-<%= button_group do %>
-  <%= button("Left", url: "/left") %>
-  <%= button("Right", id: 'right') %>
-<% end %>
-
-<%= button_toolbar do %>
-  <%= button('Single Button', url: '/single') %>
-  <%= button_group do %>
-    <%= button('Group Button 1') %>
-    <%= button('Group Button 2') %>
-  <% end %>
-  <%= button('Another Single') %>
-<% end %>
-#
-<div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div><div>
-<%= badge('Default') %>
-</div>

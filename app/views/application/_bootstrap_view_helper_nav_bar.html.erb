@@ -1,14 +1,13 @@
 <%= nav_bar do %>      
 
-  <%= brand('Span Brand')%>
-  <%= brand('Link Brand', url: '#')%>
+  <%= brand('Bootstrap View Helpers', url: bvh_path)%>
 
   <%= nav_bar_links do %>
     <%= nav_bar_link('Active', '#', active: true) %>
     <%= nav_bar_link('Link1', '/link1') %>
     <%= nav_bar_divider %>
     <%= nav_dropdown('Foo') do %>
-      <%= dropdown_item('One', 'foo')%>
+      <%= dropdown_item('One', 'foo') %>
     <% end %>
   <% end %>
 
