@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Bootstrap::FormHelper do
 
+  
   describe '#submit_button_tag' do
 
     def submit_button_tag(*args)
@@ -75,4 +76,27 @@ describe Bootstrap::FormHelper do
 
   end
 
+  describe '#cancel_button_tag' do
+    def cancel_button_tag(*args)
+      helper.cancel_button_tag(*args).tap do |tag|
+        # puts tag.inspect
+      end
+    end
+    
+    it "default" do
+      cancel_button_tag(url: '/').should have_tag(:a, href: '/', class: 'btn', text: 'Cancel')
+    end
+    
+    it "override text" do
+      cancel_button_tag('Return', url: '/').should have_tag(:a, href: '/', class: 'btn', text: 'Return')
+    end
+    
+    it "button modifiers" do
+      cancel_button_tag(:small, :info, url: '/').should have_tag(:a, href: '/', class: ['btn', 'btn-small', 'btn-info'], text: 'Cancel')
+    end
+    
+    it "error if no :url" do
+      expect { cancel_button_tag}.to raise_error(Bootstrap::FormHelper::ArgumentError)
+    end
+  end
 end

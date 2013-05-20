@@ -56,6 +56,7 @@ module SelectorMethods
     args = [selector]
     args << {:text => text} if has_text
 
+# puts "**** #{args.inspect}"
     have_selector *args
   end
 
