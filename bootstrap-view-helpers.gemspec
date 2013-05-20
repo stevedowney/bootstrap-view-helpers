@@ -11,10 +11,12 @@ Gem::Specification.new do |s|
   s.email       = ["steve.downtown@gmail.com"]
   s.homepage    = "https://github.com/stevedowney/bootstrap-view-helpers"
   s.summary     = "Rails view helpers for Bootstrap"
-  s.description = "Rails view helpers for Bootstrap"
+  s.description = "Produce Bootstrap html with semantic helper methods."
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
 
+  s.platform       = RUBY_PLATFORM =~ /java/ ? 'jruby' : 'ruby'
+  
   s.add_dependency "rails"
   s.add_dependency "jquery-rails"
   
@@ -24,10 +26,17 @@ Gem::Specification.new do |s|
   s.add_development_dependency "capybara"
   s.add_development_dependency "guard-rspec"
   s.add_development_dependency "guard-spork"
-  s.add_development_dependency "sqlite3"
   s.add_development_dependency 'better_errors'
   s.add_development_dependency "yard"
-  s.add_development_dependency "redcarpet"
   s.add_development_dependency 'quiet_assets'
   s.add_development_dependency 'thin'
+
+  
+  if s.platform == 'java'
+    s.add_development_dependency 'activerecord-jdbcsqlite3-adapter'
+  else
+    s.add_development_dependency "redcarpet"
+    s.add_development_dependency "sqlite3"
+  end
+
 end
