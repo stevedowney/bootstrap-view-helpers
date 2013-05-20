@@ -84,8 +84,8 @@ Complete [API documentation](http://rubydoc.info/gems/bootstrap-view-helpers/fra
       <%= dropdown_item('One', 'foo')%>
     <% end %>
 
-     <% end %>
-   <% end %>
+  <% end %>
+<% end %>
 ```
 
 #### Navigation List (sidebar)
