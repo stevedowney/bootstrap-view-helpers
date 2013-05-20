@@ -7,6 +7,8 @@ Includes support for:
   * navigation
     * nav bar
     * nav list
+  * icons
+    * icons with text 
   * buttons
     * `<button>`
     * `<a>` styled as button
@@ -19,7 +21,8 @@ Includes support for:
     * split-button dropdowns
   * accordion
   * form helpers
-    * submit_tag_button 
+    * submit_tag_button
+    * cancel_tag_button
   
 ## Note
 
@@ -77,6 +80,30 @@ Complete [API documentation](http://rubydoc.info/gems/bootstrap-view-helpers/fra
   <%= dropdown_item('Buttons', 'butons')%>
   <%= dropdown_item('Labels', 'butons')%>
 <% end %>
+```
+
+### Icons
+
+See: http://twitter.github.io/bootstrap/base-css.html#icons
+
+Icons
+```ruby
+icon(:search)
+icon(:search, :white)
+icon(:search, :white, id: 'my-id')
+```
+
+Icons with Text
+```ruby
+icon(:search, 'Search')
+icon(:remove, :white, 'Delete')
+icon(:ok, 'Save', id: 'my-id')
+```
+
+Line up text when some have icons and some don't
+```ruby
+icon(:search, 'With icon')  # shows search icon
+icon(:blank, 'No icon')     # no icon, text will aligin if icons are stacked
 ```
 
 ### Buttons
@@ -194,4 +221,14 @@ submit_button_tag('Big', :large)
 submit_button_tag('With Options', :small, :info, id: 'my-id')
 ```
 
+#### cancel_tag_button
 
+Convenience method for standard "Cancel" button.  `<a>` tag styled as Bootstrap button.
+
+```ruby
+cancel_button_tag(url: '/')  # => <a href="/" class="btn">Cancel</a>
+cancel_button_tag('Go Back', url: '/')
+cancel_button_tag(:info, url: '/')
+cancel_button_tag(:large, url: '/')
+cancel_button_tag('Return', :small, :warning, url: '/', id: 'my-id')
+```
