@@ -1,5 +1,10 @@
 <%= nav_list do %>
+  
   <%= nav_list_header('Buttons & Labels') %>
   <%= dropdown_item('Buttons', bvh_path('buttons')) %>
-  <%= dropdown_item('Labels', bvh_path('labels')) %>
+  <%= dropdown_item('Labels and badges', bvh_path('labels_and_badges')) %>
+  
+  <%= nav_list_header('Other') %>
+  <%= dropdown_item('Accordions', bvh_path('accordions')) %>
+  
 <% end %>

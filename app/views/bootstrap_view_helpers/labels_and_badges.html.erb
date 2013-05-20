@@ -1,0 +1,113 @@
+<h1>Labels and Badges</h1>
+<p><%= link_to('Bootstrap Documentation', 'http://twitter.github.io/bootstrap/components.html#labels-badges') %>
+
+<h2>Labels</h2>
+<p>We use <code>stamp</code> because <code>label</code> is a Rails Helper method.</p>
+
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th width="125px"> Label</th>
+      <th> Code</th>
+    </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= stamp('Default') %>
+      <td>
+        <code>stamp('Default')</code>
+      </td>
+    </tr>
+    <tr>
+      <td><%= stamp('Success', :success) %>
+      <td>
+        <code>stamp('Success', :success)</code>
+      </td>
+    </tr>
+    <tr>
+      <td><%= stamp('Warning', :warning) %>
+      <td>
+        <code>stamp('Warning', :warning)</code>
+      </td>
+    </tr>
+    <tr>
+      <td><%= stamp('Important', :important) %>
+      <td>
+        <code>stamp('Important', :important)</code>
+      </td>
+    </tr>
+    <tr>
+      <td><%= stamp('Info', :info) %>
+      <td>
+        <code>stamp('Info', :info)</code>
+      </td>
+    </tr>
+    <tr>
+      <td><%= stamp('Inverse', :inverse) %>
+      <td>
+        <code>stamp('Inverse', :inverse)</code>
+      </td>
+    </tr>
+    <tr>
+      <td> Options
+      <td>
+        <code>stamp('Success', :success, id: 'success-label', key: 'value')</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Badges</h2>
+
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th width="125px">Badge</th>
+      <th> Code</th>
+    </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= badge('1') %>
+      <td>
+        <code>badge('1')</code>
+      </td>
+    </tr>
+    <tr>
+      <td><%= badge('2', :success) %>
+      <td>
+        <code>badge('2', :success)</code>
+      </td>
+    </tr>
+    <tr>
+      <td><%= badge('3', :warning) %>
+      <td>
+        <code>badge('3', :warning)</code>
+      </td>
+    </tr>
+    <tr>
+      <td><%= badge('4', :important) %>
+      <td>
+        <code>badge('4', :important)</code>
+      </td>
+    </tr>
+    <tr>
+      <td><%= badge('5', :info) %>
+      <td>
+        <code>badge('5', :info)</code>
+      </td>
+    </tr>
+    <tr>
+      <td><%= badge('10', :inverse) %>
+      <td>
+        <code>badge('10', :inverse)</code>
+      </td>
+    </tr>
+    <tr>
+      <td> Options
+      <td>
+        <code>badge('Success', :success, id: 'success-badge', key: 'value')</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
