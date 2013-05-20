@@ -21,7 +21,8 @@ Includes support for:
     * split-button dropdowns
   * accordion
   * form helpers
-    * submit_tag_button 
+    * submit_tag_button
+    * cancel_tag_button
   
 ## Note
 
@@ -220,4 +221,14 @@ submit_button_tag('Big', :large)
 submit_button_tag('With Options', :small, :info, id: 'my-id')
 ```
 
+#### cancel_tag_button
 
+Convenience method for standard "Cancel" button.  `<a>` tag styled as Bootstrap button.
+
+```ruby
+cancel_button_tag(url: '/')  # => <a href="/" class="btn">Cancel</a>
+cancel_button_tag('Go Back', url: '/')
+cancel_button_tag(:info, url: '/')
+cancel_button_tag(:large, url: '/')
+cancel_button_tag('Return', :small, :warning, url: '/', id: 'my-id')
+```
