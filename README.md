@@ -31,6 +31,15 @@ compatibility will be broken until things settle down.
 
 ## Installation
 
+### Bootstrap Requirement
+
+*Bootstrap is required in your application, but bootstrap-view-helpers does not 
+enforce this.  You are responsible for Bootstrap being present in your application.*
+
+There are gems for this including [bootstrap-sass](https://github.com/thomas-mcdonald/bootstrap-sass).
+
+### Installing bootstrap-view-helpers
+
 Add it to your Gemfile:
 
 ```ruby
@@ -42,6 +51,7 @@ Run bundler:
 ```sh
 bundle install
 ```
+
 
 ## API Documentation
 
