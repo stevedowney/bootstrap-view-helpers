@@ -51,12 +51,12 @@ describe Bootstrap::AccordionHelper do
               'a.accordion-toggle',
               '[data-parent="#my-accordion-id"]',
               '[data-toggle="collapse"]',
-              '[href="#my-group-id"]'
+              '[href="#my-accordion-id-group-1"]'
             ].join
             heading.find(selector, text: 'Group').should_not be_nil
           end
         
-          group.find('div.accordion-body.collapse.in[id="my-group-id"]').tap do |body|
+          group.find('div.accordion-body.collapse.in[id="my-accordion-id-group-1"]').tap do |body|
             body.find('div.accordion-inner', text: 'content').should_not be_nil
           end
         end

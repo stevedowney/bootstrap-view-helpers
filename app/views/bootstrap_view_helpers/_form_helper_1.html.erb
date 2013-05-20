@@ -1,0 +1,14 @@
+<%= form_tag do %>
+
+  <p>
+    <label>Field
+      <%= text_field_tag(:fieldname) %>
+    </label>
+  </p>
+  
+  <div class='form-actions'>
+    <%= submit_button_tag %>
+    <%= cancel_button_tag(url: '#') %>
+  </div>
+  
+<% end %>

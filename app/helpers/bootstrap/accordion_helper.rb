@@ -44,8 +44,8 @@ module Bootstrap::AccordionHelper
     options = canonicalize_options(options)
     open = options.delete(:open)
 
-    options = ensure_accordion_group_id(options)
-    @accordion_group_id = options[:id]
+    # options = ensure_accordion_group_id(options)
+    @accordion_group_id = get_next_group_id
 
     options = ensure_class(options, 'accordion-group')
     
@@ -74,6 +74,8 @@ module Bootstrap::AccordionHelper
   end
   
   def ensure_accordion_id(options)
+    @accordion_group_number = 0
+    
     if options.has_key?(:id)
       options
     else
@@ -84,14 +86,19 @@ module Bootstrap::AccordionHelper
     end
   end
 
-  def ensure_accordion_group_id(options)
-    if options.has_key?(:id)
-      options
-    else
-      @accordion_group_number = @accordion_group_number.to_i + 1
-      options.dup.tap do |h|
-        h[:id] = "#{@accordion_id}-group-#{@accordion_group_number}"
-      end
-    end
+  def get_next_group_id
+    @accordion_group_number = @accordion_group_number + 1
+    "#{@accordion_id}-group-#{@accordion_group_number}"
   end
+
+  # def ensure_accordion_group_id(options)
+  #   if options.has_key?(:id)
+  #     options
+  #   else
+  #     @accordion_group_number = @accordion_group_number.to_i + 1
+  #     options.dup.tap do |h|
+  #       h[:id] = "#{@accordion_id}-group-#{@accordion_group_number}"
+  #     end
+  #   end
+  # end
 end

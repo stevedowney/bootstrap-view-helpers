@@ -1,63 +1,13 @@
-<h2> Accordions
-<p><%=link_to 'Bootstrap Documentation', 'http://twitter.github.io/bootstrap/javascript.html#collapse' %>
+<h1>Accordions</h1>
 
-<div class="bs-docs-example">
-  = accordion do
-    = accordion_group('1. One') do
-      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-    = accordion_group('2. Two - initially open', open: true) do
-      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-    = accordion_group('3. Three') do
-      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+<p>
+  <%=link_to 'Bootstrap Documentation', 'http://twitter.github.io/bootstrap/javascript.html#collapse' %>
+  <br>
+  <%= link_to('API Documentation', 'http://rubydoc.info/gems/bootstrap-view-helpers/Bootstrap/AccordionHelper') %>
+</p>
 
-  %br
-  <pre>
-    = preserve do
-      :escaped
-        = accordion do
-          = accordion_group('1. One') do
-            Anim pariatur ...
-          = accordion_group('2. Two - initially open', open: true) do
-            Anim pariatur ...
-          = accordion_group('3. Three') do
-            Anim pariatur ...
+<h2>Example</h2>
+<%= render partial: 'accordions' %>
 
-<h2> Form Helpers
-%h3 Submit Tag
-<p> We override <code>ActionView::Helpers::FormTagHelper#submit_tag</code>.
-<p> Calls to <code>f.submit</code> result in calls to <code>submit_tag</code>.
-<p> Calling this with no options results in the following:
-%ul
-  %li The <code>:class</code> attribute is set to <code>'btn btn-primary'</code>
-  %li The <code>:disable_with</code> attribute is set to <code>"Processing ..."</code>
-
-<table class='table table-bordered table-striped'>
-  <thead>
-    <tr>
-      <th width="125px"> Button
-      <th> Code</th>
-    </th>
-  </thead>
-  <tbody>
-    <tr>
-      <td>= submit_tag
-      <td>
-        <code>submit_tag
-        %code=h %(#=> <input class="btn btn-primary" data-disable-with="Processing ..." name="commit" type="submit" value="Save changes" />)
-    <tr>
-      <td>
-        = submit_tag('Save', bootstrap: false, data: {disable_with: false})
-        %br Original behavior
-      <td>
-        <code>submit_tag('Save', bootstrap: false, data: {disable_with: false})
-    <tr>
-      <td>= submit_tag('Save', class: 'btn-info')
-      <td>
-        <code>submit_tag('Save', class: 'btn-info')
-    <tr>
-      <td>= submit_tag('Save', class: 'my-class')
-      <td>
-        <code>submit_tag('Save', class: 'my-class')
-
-%hr{style: 'margin-bottom: 6em'}
-
+<h2>Source</2>
+<%= bvh_show_source('bootstrap_view_helpers/_accordions') %>
