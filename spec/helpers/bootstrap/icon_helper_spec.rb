@@ -29,6 +29,10 @@ describe Bootstrap::IconHelper do
       it "icon(:search, id: 'ID', class: 'CLASS')" do
         icon(:search, id: 'ID', class: 'CLASS').should have_tag(:i, class: ['icon-search', 'CLASS'], id: 'ID', text: '')
       end
+      
+      it "converts '_' to '-'" do
+        icon(:step_backward).should have_tag(:i, class: 'icon-step-backward', text: nil)
+      end
     end
     
     describe 'icon w/text' do
