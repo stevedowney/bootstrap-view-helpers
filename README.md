@@ -52,6 +52,11 @@ Run bundler:
 bundle install
 ```
 
+See working examples served up in your application (assuming you have Bootstrap):
+
+```
+http://<your app>/bootstrap_view_helpers
+```
 
 ## API Documentation
 
