@@ -1,10 +1,10 @@
 <%= nav_list do %>
   
-  <%= nav_list_header('Buttons & Labels') %>
+  <%= nav_list_header('Sidebar Header') %>
+
+  <%= dropdown_item('Icons', bvh_path('icons')) %>
   <%= dropdown_item('Buttons', bvh_path('buttons')) %>
   <%= dropdown_item('Labels and badges', bvh_path('labels_and_badges')) %>
-  
-  <%= nav_list_header('Other') %>
   <%= dropdown_item('Accordions', bvh_path('accordions')) %>
   <%= dropdown_item('Form helpers', bvh_path('form_helpers')) %>
   
