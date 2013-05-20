@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bootstrap-view-helpers (0.0.6)
+    bootstrap-view-helpers (0.0.7)
       jquery-rails
       rails
 
