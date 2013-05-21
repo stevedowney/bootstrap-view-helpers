@@ -16,10 +16,10 @@
 #
 module Bootstrap::AccordionHelper
   
-  # Returns the outer html for a Bootstrap accordion.
+  # Returns the html for a Bootstrap accordion.
   #
   # @param [Hash] options html attributes for accordion <div>
-  # @return [String] accordion html
+  # @return [String] <div class="accordion"> plus results of yielded block
   # @yield Should contain calls to {Bootstrap::AccordionHelper#accordion_group}
   # @yieldreturn [String] Html from {Bootstrap::AccordionHelper#accordion_group} calls
   def accordion(options={})

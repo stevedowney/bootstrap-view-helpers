@@ -1,3 +1,4 @@
+# @private
 class BvhHomeController < ApplicationController
   
   def index
