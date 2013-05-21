@@ -1,8 +1,9 @@
 <%= nav_bar do %>      
 
-  <%= brand('Bootstrap View Helpers', url: bvh_path)%>
+  <%= brand('Bootstrap View Helpers', url: bvh_path) %>
 
   <%= nav_bar_links do %>
+    <%= nav_bar_link('Application Home', bvh_app_home_link) %>
     <%= nav_bar_link('Active', '#', active: true) %>
     <%= nav_bar_link('Link1', '/link1') %>
     <%= nav_bar_divider %>

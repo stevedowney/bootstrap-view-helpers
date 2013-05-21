@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = "Rails view helpers for Bootstrap"
   s.description = "Produce Bootstrap html with semantic helper methods."
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["CHANGELOG.md","MIT-LICENSE", "Rakefile", "README.md"]
 
   s.platform       = RUBY_PLATFORM =~ /java/ ? 'jruby' : 'ruby'
   
@@ -26,17 +26,19 @@ Gem::Specification.new do |s|
   s.add_development_dependency "capybara"
   s.add_development_dependency "guard-rspec"
   s.add_development_dependency "guard-spork"
-  # s.add_development_dependency 'better_errors'
-  s.add_development_dependency "yard"
-  s.add_development_dependency 'quiet_assets'
-  s.add_development_dependency 'thin'
 
   
   if s.platform == 'java'
     s.add_development_dependency 'activerecord-jdbcsqlite3-adapter'
   else
-    s.add_development_dependency "redcarpet"
     s.add_development_dependency "sqlite3"
   end
 
+  if ENV['ENGINE_DEVELOPER'] == 'true'
+    s.add_development_dependency 'better_errors'
+    s.add_development_dependency "redcarpet"
+    s.add_development_dependency "yard"
+    s.add_development_dependency 'quiet_assets'
+    s.add_development_dependency 'thin'
+  end
 end
