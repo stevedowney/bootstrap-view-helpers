@@ -121,6 +121,7 @@ module Bootstrap::ButtonHelper
   end
   
   # Ensures each entry in _types_and_sizes_ is a valid button modifier.
+  #
   # @raise InvalidButtonModifierError if one of the args isn't a valid button modifier.
   # @private
   def validate_button_types_and_sizes(types_and_sizes)
