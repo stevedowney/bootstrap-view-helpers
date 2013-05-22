@@ -68,5 +68,10 @@ describe Bootstrap::NavHelper do
     end
   end
   
+  describe '#nav_list_header' do
+    it "<li.nav-header>text</li>" do
+      helper.nav_list_header('TEXT').should have_tag(:li, class: 'nav-header', text: 'TEXT')
+    end
+  end
 end
     

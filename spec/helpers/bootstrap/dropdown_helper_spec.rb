@@ -12,7 +12,7 @@ describe Bootstrap::DropdownHelper do
           a.find('span.caret').should_not be_nil
         end
         
-        li.find('ul.dropdown-menu') do |ul|
+        li.find('ul.dropdown-menu').tap do |ul|
           ul.find('li', text: 'item').should_not be_nil
         end
       end

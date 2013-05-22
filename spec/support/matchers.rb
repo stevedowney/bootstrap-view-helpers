@@ -60,25 +60,25 @@ module SelectorMethods
     have_selector *args
   end
 
-  def on_controller?(controller, action = nil)
-    body_tag = find(:xpath, '//body')
-
-    data_controller = body_tag['data-controller']
-    if controller != data_controller
-      msg = %(Expected to find body[data-controller] == "#{controller}", found "#{data_controller}")
-      raise Capybara::ExpectationNotMet, msg
-    end
-    
-    if action.present?
-      data_action = body_tag['data-action']
-      if action != data_action
-        msg = %(Expected to find body[data-action] == "#{action}", found "#{data_action}")
-        raise Capybara::ExpectationNotMet, msg
-      end
-    end
-    
-    true
-  end
+  # def on_controller?(controller, action = nil)
+  #   body_tag = find(:xpath, '//body')
+  # 
+  #   data_controller = body_tag['data-controller']
+  #   if controller != data_controller
+  #     msg = %(Expected to find body[data-controller] == "#{controller}", found "#{data_controller}")
+  #     raise Capybara::ExpectationNotMet, msg
+  #   end
+  #   
+  #   if action.present?
+  #     data_action = body_tag['data-action']
+  #     if action != data_action
+  #       msg = %(Expected to find body[data-action] == "#{action}", found "#{data_action}")
+  #       raise Capybara::ExpectationNotMet, msg
+  #     end
+  #   end
+  #   
+  #   true
+  # end
   
 #   def should_have_div(instance = default_instance)
 #     page.should have_tag(:div, :id => instance.dom_id, :class => instance.class.underscore)
@@ -88,14 +88,14 @@ module SelectorMethods
 #     page.should_not have_tag(:div, :id => instance.dom_id)
 #   end
   
-  def has_tr?(instance = default_instance)
-    selector = "tr##{instance.dom_id}.#{instance.dom_class}"
-    if has_css?(selector)
-      return true
-    else
-      raise Capybara::ExpectationNotMet, "Didn't find #{selector}"
-    end
-  end
+  # def has_tr?(instance = default_instance)
+  #   selector = "tr##{instance.dom_id}.#{instance.dom_class}"
+  #   if has_css?(selector)
+  #     return true
+  #   else
+  #     raise Capybara::ExpectationNotMet, "Didn't find #{selector}"
+  #   end
+  # end
   
 #   def should_not_have_tr(instance = default_instance)
 #     page.should_not have_tag(:tr, :id => instance.dom_id)

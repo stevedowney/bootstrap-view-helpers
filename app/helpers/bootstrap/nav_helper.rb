@@ -117,8 +117,9 @@ module Bootstrap::NavHelper
   end
   
   # Returns header for nav_list
-  # @param [String] text text of header
-  # @return [String]
+  #
+  # @param text [String] text of header
+  # @return [String] <li.nav-header>text</li>
   def nav_list_header(text)
     content_tag(:li, text, class: 'nav-header')
   end
