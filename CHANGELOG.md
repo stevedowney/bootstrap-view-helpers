@@ -1,8 +1,8 @@
 # Change Log
 
-## v 0.0.8 (coming)
+## v 0.0.8
 
-*
+* added `:with_environment_option` to `brand`
 
 ## v 0.0.7
 
