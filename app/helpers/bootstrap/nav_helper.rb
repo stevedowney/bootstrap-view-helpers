@@ -46,10 +46,19 @@ module Bootstrap::NavHelper
   # @param [String] text text of the brand
   # @param [Hash] options except for +:url+, becomes html attributes of returned tag
   # @option options [String] :url if present, returned tag is an <a> (else <span>)
+  # @option options [Boolean] :with_environment if present, environment is appended to _text_ and
+  #   and a class of "rails-<Rails.env>" is added to the returned tag.
   # @return [String] <a> if +:url+ option present, else <span>
   def brand(text, options = {})
     options = canonicalize_options(options)
     options = ensure_class(options, 'brand')
+
+    with_environment = options.delete(:with_environment)
+    if with_environment && Rails.env != 'production'
+      text = "#{text} - #{Rails.env}"
+      options = ensure_class(options, "rails-#{Rails.env}") 
+    end
+
     url = options.delete(:url)
     
     if url.present?

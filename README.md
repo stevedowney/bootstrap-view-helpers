@@ -74,8 +74,9 @@ Complete [API documentation](http://rubydoc.info/gems/bootstrap-view-helpers/fra
 ```
 <%= nav_bar do %>      
 
-  <%= brand('Span Brand')%>
-  <%= brand('Link Brand', url: '#')%>
+  <%= brand('Span Brand') %>
+  <%= brand('Link Brand', url: '#') %>
+  <%= brand('MyApp', with_environment: true) %>
 
   <%= nav_bar_links do %>
 

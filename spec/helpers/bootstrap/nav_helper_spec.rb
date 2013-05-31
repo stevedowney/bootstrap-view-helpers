@@ -25,6 +25,21 @@ describe Bootstrap::NavHelper do
     it "url" do
       brand('foo', url: 'url').should have_tag(:a, class: 'brand', href: 'url', text: 'foo')
     end
+    
+    it "with_environment - not 'production'" do
+     brand('foo', with_environment: true)
+        .should have_tag(:span, class: ['brand', 'rails-test'], text: 'foo - test')
+    end
+
+    it "with_environment - 'production'" do
+      Rails.stub(env: 'production')
+      html = brand('foo', with_environment: true)
+
+      html.should have_tag(:span, class: ['brand'], text: 'foo')
+      
+      html.should_not have_tag(:span, class: 'rails-production')
+      html.should_not have_tag(:span, text: 'production')
+    end
   end
   
   describe '#nav_bar_links' do
