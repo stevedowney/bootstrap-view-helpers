@@ -3,6 +3,7 @@
 [![Gem Version](https://badge.fury.io/rb/bootstrap-view-helpers.png)](http://badge.fury.io/rb/bootstrap-view-helpers)
 [![Build Status](https://travis-ci.org/stevedowney/bootstrap-view-helpers.png)](https://travis-ci.org/stevedowney/bootstrap-view-helpers)
 [![Code Climate](https://codeclimate.com/github/stevedowney/bootstrap-view-helpers.png)](https://codeclimate.com/github/stevedowney/bootstrap-view-helpers)
+[![Coverage Status](https://coveralls.io/repos/stevedowney/bootstrap-view-helpers/badge.png?branch=master)](https://coveralls.io/r/stevedowney/bootstrap-view-helpers?branch=master)
 
 This gem provides helper methods for various Bootstrap components.
 
