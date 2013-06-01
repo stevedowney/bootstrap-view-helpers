@@ -1,5 +1,9 @@
 # Change Log
 
+## v 0.0.9
+
+* fixed bug in view path for examples page
+
 ## v 0.0.8
 
 * added `:with_environment_option` to `brand`

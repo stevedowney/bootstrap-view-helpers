@@ -14,7 +14,7 @@ module BootstrapExamples::ApplicationHelper
   private
   
   def bvh_view_dir
-    Rails.root.join('../../app/views')
+    BootstrapViewHelpers::Engine.root.join('app/views')
   end
   
 end

@@ -63,6 +63,8 @@ See working examples served up in your application (assuming you have Bootstrap)
 http://<your app>/bootstrap_view_helpers
 ```
 
+Url helpers for the example page: `bvh_path` and `bvh_url`.
+
 ## API Documentation
 
 Complete [API documentation](http://rubydoc.info/gems/bootstrap-view-helpers/frames/file/README.md) at [RubyGems.org](https://rubygems.org/).
