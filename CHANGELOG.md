@@ -1,5 +1,9 @@
 # Change Log
 
+## v 0.0.10
+
+* added alert support
+
 ## v 0.0.9
 
 * fixed bug in view path for examples page
