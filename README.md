@@ -28,6 +28,7 @@ Includes support for:
   * form helpers
     * submit_tag_button
     * cancel_tag_button
+  * alerts
   
 ## Note
 
@@ -254,4 +255,29 @@ cancel_button_tag('Go Back', url: '/')
 cancel_button_tag(:info, url: '/')
 cancel_button_tag(:large, url: '/')
 cancel_button_tag('Return', :small, :warning, url: '/', id: 'my-id')
+```
+
+### Alerts
+
+[Bootstrap Documentation](http://twitter.github.io/bootstrap/components.html#alerts)
+[API Documentation](http://rubydoc.info/gems/bootstrap-view-helpers/Bootstrap/AlertHelper)
+
+```erb
+<%= alert('Default Alert') %>
+<%= alert('Type :info', :info) %>
+<%= alert('Type :success', :success) %>
+<%= alert('Type :error', :error) %>
+
+<%= alert('Default alert with heading', heading: 'Warning!') %>
+<%= alert('No close button', close: false) %>
+<%= alert("Type :block gives some more padding", :block ) %>
+<%= alert("Unknown options are html attributes", id: 'my-id', class: 'my-class') %>
+
+<%= alert :success do %>
+  <%= alert_heading('A List') %>
+  <ul>
+    <li>One</li>
+    <li>Two</li>
+  </ul>
+<% end %>
 ```
