@@ -43,13 +43,17 @@ describe Bootstrap::NavHelper do
   end
   
   describe '#nav_bar_links' do
-    let(:nav_bar_links) { helper.nav_bar_links { content_tag(:span, 'content') } }
+    let(:nav_bar_links) { helper.nav_bar_links(pull: 'right') { content_tag(:span, 'content') } }
     let(:html) { Capybara.string(nav_bar_links) }
     
     it "has correct html" do
       html.find('div.nav').tap do |div|
         div.should have_tag(:span, text: 'content')
       end
+    end
+    
+    it "supports :pull option" do
+      html.should have_tag('div.nav.pull-right')
     end
   end
   
@@ -88,5 +92,26 @@ describe Bootstrap::NavHelper do
       helper.nav_list_header('TEXT').should have_tag(:li, class: 'nav-header', text: 'TEXT')
     end
   end
+  
+  describe '#nav_bar_text' do
+    def nbt(*args); helper.nav_bar_text(*args) end
+    
+    it "defaults" do
+      html = nbt('Text', id: 'ID')
+      html.should have_tag(:p, class: ['navbar-text', 'pull-left'], id: 'ID', text: 'Text')
+      html.should include('&nbsp;&nbsp;&nbsp;Text&nbsp;&nbsp;&nbsp;')
+    end
+    
+    it "pull right" do
+      nbt('Text', pull: 'right').should have_tag(:p, class: ['navbar-text', 'pull-right'], text: 'Text')
+    end
+    
+    it "suppress padding" do
+      html = nbt('Text', pad: false)
+      html.should have_tag(:p, class: ['navbar-text', 'pull-left'], text: 'Text')
+      html.should_not include('&nbsp;')
+    end
+  end
+  
 end
     

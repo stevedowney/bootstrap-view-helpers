@@ -23,7 +23,7 @@ module Bootstrap::AlertHelper
   # @overload alert(text, alert_type, options={})
   #   @param text [String] text of the label
   #   @param alert_type [Symbol, String] if present must be one of {Bootstrap::AlertHelper::ALERT_ATTRIBUTES}
-  #   @param options [Hash] html attributes for returned alert <div>
+  #   @param options [Hash] unrecognized options become html attributes for returned alert <div>
   #   @option options [String] :heading if present, include a heading in the alert
   #   @option options [Boolean] :close if +false+, don't include a close link ('x')
   # @return [String] Returns html for alert

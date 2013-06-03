@@ -83,17 +83,19 @@ Complete [API documentation](http://rubydoc.info/gems/bootstrap-view-helpers/fra
   <%= brand('MyApp', with_environment: true) %>
 
   <%= nav_bar_links do %>
-
     <%= nav_bar_link('Active', '#', active: true) %>
-    <%= nav_bar_link('Link1', '/link1') %>
-
+    <%= nav_bar_link('Link 1', '/link1') %>
     <%= nav_bar_divider %>
+    <%= nav_bar_link('Link 2', '/link2') %>
+  <% end %>
 
+  <%= nav_bar_links(pull: 'right') do %>
+    <%= nav_bar_text('logged in as admin') %>
     <%= nav_dropdown('Foo') do %>
       <%= dropdown_item('One', 'foo')%>
     <% end %>
-
   <% end %>
+  
 <% end %>
 ```
 

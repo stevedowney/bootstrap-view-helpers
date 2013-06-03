@@ -1,5 +1,10 @@
 # Change Log
 
+## v 0.0.11
+
+* added `nav_bar_text`
+* added `:pull` option to `nav_bar_links`
+
 ## v 0.0.10
 
 * added alert support

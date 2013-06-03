@@ -32,8 +32,11 @@ module Bootstrap::DropdownHelper
   # @param [String] text text of dropdown link
   # @yield yielded block is usually calls to {Bootstrap::NavHelper#dropdown_item} or {Bootstrap::NavHelper#dropdown_divider}
   # @return [String] '<li class='dropdown'><ul class='dropdown-menu'> with contents of yielded block
-  def nav_dropdown(text)
-    content_tag(:li, class: 'dropdown') do
+  def nav_dropdown(text, options={})
+    options = canonicalize_options(options)
+    options = ensure_class(options, 'dropdown')
+    
+    content_tag(:li, options) do
       nav_dropdown_link(text) + dropdown_ul { yield }
     end
   end

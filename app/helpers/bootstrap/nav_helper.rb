@@ -8,17 +8,18 @@
 #     <%= brand('Link Brand', url: '#')%>
 #
 #     <%= nav_bar_links do %>
-#
 #       <%= nav_bar_link('Active', '#', active: true) %>
-#       <%= nav_bar_link('Link1', '/link1') %>
-#
+#       <%= nav_bar_link('Link 1', '/link1') %>
 #       <%= nav_bar_divider %>
-#
+#       <%= nav_bar_link('Link 2', '/link2') %>
+#     <% end >
+# 
+#     <%= nav_dropdown(pull: 'right') %>
 #       <%= nav_dropdown('Foo') do %>
 #         <%= dropdown_item('One', 'foo')%>
 #       <% end %>
-#
 #     <% end %>
+#
 #   <% end %>
 #
 # @example navigation list (e.g., in sidebar)
@@ -68,15 +69,21 @@ module Bootstrap::NavHelper
     end
   end
   
-  # Returns <ul> for a group of nav bar links.
+  # Returns <div> for a group of nav bar links, <ul>s.
   #
   # Usually called in +yield+ block of {Bootstrap::NavHelper#nav_bar}
   #
+  # @param options [Hash] options except for +:pull+ become html attributes of generated <div>
+  # @option options [:left, :right] pull will add class of "pull-left|right" for Bootstrap nav bar positioning
   # @yield block usually consists of calls to {Bootstrap::NavHelper#nav_bar_link} and {Bootstrap::NavHelper#nav_bar_divider}
   # @return [String] <div class='nav'> containing results of yielded block
   def nav_bar_links(options={})
     options = canonicalize_options(options)
     options = ensure_class(options, 'nav')
+    
+    if pull = options.delete(:pull)
+      options = ensure_class(options, "pull-#{pull}")
+    end
     
     content_tag(:div, options) do
       yield
@@ -131,5 +138,30 @@ module Bootstrap::NavHelper
   # @return [String] <li.nav-header>text</li>
   def nav_list_header(text)
     content_tag(:li, text, class: 'nav-header')
+  end
+  
+  # Wraps _text_ so it has proper leading and color for text in a nav bar.  Usually
+  # in a +nav_bar_links+ block
+  #
+  # Note that the Bootstrap CSS has no horizontal margins or padding.  This method
+  # pads with three +\&nbsp;+ at front and back.  Use +pad: false+ to suppress padding.
+  #
+  # @param text [String] text to display
+  # @param options [Hash] unknown options become html attributes for the <p>
+  # @option options [:left, :right] :pull (:left) adds the Boostrap positioning class
+  # @option options [Boolean] :pad (true) include padding around text
+  # @return [String]
+  def nav_bar_text(text, options={})
+    options = canonicalize_options(options)
+
+    unless options.delete(:pad) == false
+      padding = ("&nbsp;" * 3).html_safe
+      text = padding + h(text) + padding
+    end
+    
+    pull_class = (options.delete(:pull).to_s == 'right' ? 'pull-right' : 'pull-left')
+    options = ensure_class(options, [pull_class, 'navbar-text'])
+    
+    content_tag(:p, text, options)
   end
 end
