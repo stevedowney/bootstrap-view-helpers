@@ -17,6 +17,7 @@
 #     </ul>
 #   <% end %>
 module Bootstrap::AlertHelper
+  InvalidAlertTypeError = Class.new(StandardError)
   
   ALERT_ATTRIBUTES = %w(error success info block)
   
@@ -28,31 +29,23 @@ module Bootstrap::AlertHelper
   #   @option options [Boolean] :close if +false+, don't include a close link ('x')
   # @return [String] Returns html for alert
   def alert(*args, &block)
-    text = args.shift unless block_given?
+    body = alert_body(args, &block)
     options = canonicalize_options(args.extract_options!)
     options = ensure_class(options, 'alert')
     options = add_alert_classes(options, args)
     heading = options.delete(:heading)
     show_close = options.delete(:close) != false 
     
-    if block_given?
-      content_tag(:div, options) do
-        alert_close(show_close) + 
-        alert_heading(heading) + 
-        capture(&block)
-      end
-    else
-      content_tag(:div, options) do
-        alert_close(show_close) + 
-        alert_heading(heading) + 
-        text
-      end
+    content_tag(:div, options) do
+      alert_close(show_close) + 
+      alert_heading(heading) + 
+      body
     end
   end
   
   # Return an alert box close button
   #
-  # @return [String] html for alert close button
+  # @return [String] html for alert close button unless _show_ is +false+
   def alert_close(show=true)
     return '' unless show
     content_tag(:button, '&times;'.html_safe, class: 'close', data: {dismiss: 'alert'})
@@ -60,13 +53,21 @@ module Bootstrap::AlertHelper
 
   # Return an alert heading
   #
-  # @return [String] html for alert heading
+  # @return [String] html for alert heading unless _heading_ is blank.
   def alert_heading(heading)
     return '' unless heading.present?
     content_tag(:h4, heading)
   end
   
   private
+  
+  def alert_body(args, &block)
+    if block_given?
+      capture(&block)
+    else
+      args.shift
+    end
+  end
   
   def add_alert_classes(options, alert_attributes)
     validate_alert_attributes(alert_attributes)
@@ -75,7 +76,7 @@ module Bootstrap::AlertHelper
   end
   
   def validate_alert_attributes(alert_attributes)
-    alert_attributes.each { |e| raise(InvalidAlertAttributeError, e.inspect) unless ALERT_ATTRIBUTES.include?(e.to_s) }
+    alert_attributes.each { |e| raise(InvalidAlertTypeError, e.inspect) unless ALERT_ATTRIBUTES.include?(e.to_s) }
   end
   
   
