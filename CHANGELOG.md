@@ -1,5 +1,9 @@
 # Change Log
 
+## v 0.0.12
+
+* added `flash_messages` helper for flash support
+
 ## v 0.0.11
 
 * added `nav_bar_text`
