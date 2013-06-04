@@ -1,0 +1,25 @@
+<h1>Flash Helper</h1>
+
+<p>
+  <%= link_to('API Documentation', 'http://rubydoc.info/gems/bootstrap-view-helpers/Bootstrap/FlashHelper') %>
+</p>
+
+<h2>Example</h2>
+<%= render partial: 'flash_helper' %>
+
+<h2>Source</h2>
+<%= bvh_show_source('bootstrap_view_helpers/_flash_helper') %>
+
+<pre>
+# in controller
+
+def my_action
+  flash.now[:notice] = ":notice is mapped to :info"
+  flash.now[:alert] = ":alert is mapped to :error"
+  flash.now[:warning] = 'Unrecognized types use Bootstrap default'
+  flash.now[:success] = "The operation was a success"
+  flash.now[:error] = "There was an error"
+  flash.now[:info] = "Here is some info"
+end
+</pre>
+   
