@@ -15,7 +15,7 @@
 #     <% end >
 # 
 #     <%= nav_dropdown(pull: 'right') %>
-#       <%= nav_dropdown('Foo') do %>
+#       <%= nav_dropdown('Dropdown 1') do %>
 #         <%= dropdown_item('One', 'foo')%>
 #       <% end %>
 #     <% end %>

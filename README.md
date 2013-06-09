@@ -91,7 +91,7 @@ Complete [API documentation](http://rubydoc.info/gems/bootstrap-view-helpers/fra
 
   <%= nav_bar_links(pull: 'right') do %>
     <%= nav_bar_text('logged in as admin') %>
-    <%= nav_dropdown('Foo') do %>
+    <%= nav_dropdown('Dropdown 1') do %>
       <%= dropdown_item('One', 'foo')%>
     <% end %>
   <% end %>
@@ -282,4 +282,23 @@ cancel_button_tag('Return', :small, :warning, url: '/', id: 'my-id')
     <li>Two</li>
   </ul>
 <% end %>
+```
+
+### Flash
+
+[API Documentation](http://rubydoc.info/gems/bootstrap-view-helpers/Bootstrap/FlashHelper)
+
+```erb
+# in a layout or view
+
+<%= flash_messages %>
+<%= flash_messages close: false %>
+<%= flash_messages class: 'flash', id: 'my-flash' %>
+```
+
+```ruby
+# override default mapping (e.g., in initializer)
+
+Bootstrap::FlashHelper.mapping[:notice] = :success
+Bootstrap::FlashHelper.mapping[:mistake] = :error
 ```
