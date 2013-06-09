@@ -129,7 +129,7 @@ Complete [API documentation](http://rubydoc.info/gems/bootstrap-view-helpers/fra
 <% end %>
 ```
 
-#### Block From Using Other Modal Helpers
+#### Block Form Using Other Modal Helpers
 
 ```erb
 <%= modal_trigger("Click to show modal", href: '#modal-2', class: 'btn btn-primary') %>
