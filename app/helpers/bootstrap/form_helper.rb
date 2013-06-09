@@ -1,10 +1,10 @@
 # Rails helper methods associated with forms for Bootstrap.
 #
 # @example Bootstrap form-actions <div>
-#   <div class='form-actions'>
+#   <%= form_actions do %>
 #     <%= submit_button_tag %>
 #     <%= cancel_button_tag %>
-#   </div>
+#   <% end %>
 #
 module Bootstrap::FormHelper
   ArgumentError = Class.new(StandardError)
@@ -39,6 +39,19 @@ module Bootstrap::FormHelper
     args.unshift("Cancel") if args.all? { |e| ::Bootstrap::ButtonHelper::BUTTON_ALL.include?(e) }
 
     button(*args, options)
+  end
+  
+  # Convience method for Bootstrap form action DIV.
+  #
+  # @param options [Hash] options become html attributes of returned <div>
+  # @return [String] <div> with yielded block
+  def form_actions(options={})
+    options = canonicalize_options(options)
+    options = ensure_class(options, 'form-actions')
+    
+    content_tag(:div, options) do
+      yield
+    end
   end
   
   # Returns <input> similar to +#submit_tag()+ but:  x

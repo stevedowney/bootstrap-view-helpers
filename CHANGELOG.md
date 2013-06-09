@@ -1,5 +1,9 @@
 # Change Log
 
+## v 0.0.13
+
+* added `form_actions`
+
 ## v 0.0.12
 
 * added `modal` and `modal_trigger` for Bootstrap modal dialogs

@@ -298,9 +298,18 @@ See: http://twitter.github.io/bootstrap/javascript.html#collapse
 
 ### Form Helpers
 
+#### form_actions
+
+```erb
+<%= form_actions do %>
+  <%= submit_button_tag %>
+  <%= cancel_button_tag(url: '#') %>
+<% end %>
+```
+
 #### submit_tag_button
 
-Returns <input> similar to +#submit_tag()+ but:
+Returns <input> similar to `#submit_tag()` but:
   * styled like a Bootstrap button, type `:primary`
   * has `:disable_with` set to "Processing ..."
   

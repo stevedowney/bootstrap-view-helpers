@@ -6,9 +6,9 @@
     </label>
   </p>
   
-  <div class='form-actions'>
+  <%= form_actions do %>
     <%= submit_button_tag %>
     <%= cancel_button_tag(url: '#') %>
-  </div>
+  <% end %>
   
 <% end %>

@@ -2,6 +2,17 @@ require 'spec_helper'
 
 describe Bootstrap::FormHelper do
 
+  describe '#form_actions' do
+    it "default" do
+      html = helper.form_actions() { 'content' }
+      html.should have_tag('div.form-actions', text: 'content')
+    end
+    
+    it "options" do
+      html = helper.form_actions(id: 'my-id', class: 'my-class') { 'content' }
+      html.should have_tag('div.my-class.form-actions', id: 'my-id', text: 'content')
+    end
+  end
   
   describe '#submit_button_tag' do
 
