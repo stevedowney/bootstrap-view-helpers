@@ -1,0 +1,15 @@
+<%= modal_trigger("Click to show modal", href: '#modal-2', class: 'btn btn-primary') %>
+
+<%= modal(id: 'modal-2') do %>
+  <%= modal_header(close: false) do %>
+    Heading <small>(with no close button)</small>
+  <% end %>
+  <%= modal_body do %>
+    <h4>Modal Body</h4>
+    <p>With additional markup</p>
+  <% end %>
+  <%= modal_footer do %>
+    <%= button("Save", :primary) %>
+    <%= modal_footer_close_button("Dismiss") %>
+  <% end %>
+<% end %>

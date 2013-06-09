@@ -1,0 +1,40 @@
+<h1>Modal Helpers</h1>
+
+<ul>
+  <li><%= link_to('Bootstrap Documentation', 'http://twitter.github.io/bootstrap/javascript.html#modals') %></li>
+  <li><%= link_to('API Documentation', 'http://rubydoc.info/gems/bootstrap-view-helpers/Bootstrap/ModalHelper') %>
+</ul>
+
+<h2>Basic Modal</h2>
+
+<h3>Example</h3>
+<%= render partial: 'modal_basic' %>
+
+<h3>Source</h3>
+<%= bvh_show_source('bootstrap_view_helpers/_modal_basic') %>
+
+<h2>Modal Utilizing Options, block form</h2>
+
+<h3>Example</h3>
+<%= render partial: 'modal_block' %>
+
+<h3>Source</h3>
+<%= bvh_show_source('bootstrap_view_helpers/_modal_block') %>
+
+<h2>Modal Alert</h2>
+<p>Simulate a Javascript <code>alert</code>:</p>
+
+<h3>Example</h3>
+<%= render partial: 'modal_alert' %>
+
+<h3>Source</h3>
+<%= bvh_show_source('bootstrap_view_helpers/_modal_alert') %>
+
+<h2>Modal Confirm</h2>
+<p>Simulate a Javascript <code>confirm</code>:</p>
+
+<h3>Example</h3>
+<%= render partial: 'modal_confirm' %>
+
+<h3>Source</h3>
+<%= bvh_show_source('bootstrap_view_helpers/_modal_confirm') %>

@@ -1,0 +1,9 @@
+<%= modal_trigger("Click to show Alert", href: '#alert') %>
+<%= modal_trigger("Click to show Alert w/block", href: '#alert-block') %>
+
+<%= modal_alert("Watch out", id: 'alert') %>
+
+<%= modal_alert(id: 'alert-block', header: 'Custom Header') do %>
+  This is some <b>bold</b> text from the <code>modal_alert</code> block.
+<% end %>
+

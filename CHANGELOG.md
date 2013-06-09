@@ -2,6 +2,7 @@
 
 ## v 0.0.12
 
+* added `modal` and `modal_trigger` for Bootstrap modal dialogs
 * added `flash_messages` helper for flash support
 
 ## v 0.0.11

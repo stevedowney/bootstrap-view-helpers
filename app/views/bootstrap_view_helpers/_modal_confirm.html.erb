@@ -1,0 +1,8 @@
+<%= modal_trigger("Click to show Confirm", href: '#confirm') %>
+<%= modal_trigger("Click to show Confirm w/block", href: '#confirm-block') %>
+
+<%= modal_confirm("Watch out", id: 'confirm') %>
+
+<%= modal_confirm(id: 'confirm-block', header: 'Custom Header') do %>
+  This is some <b>bold</b> text from the <code>modal_confirm</code> block.
+<% end %>
