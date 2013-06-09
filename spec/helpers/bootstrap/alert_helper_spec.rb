@@ -6,30 +6,6 @@ describe Bootstrap::AlertHelper do
     def alert(*args, &block)
       helper.alert(*args, &block)
     end
-    let(:html) { Capybara.string()}
-    # def alert(*args, &block)
-    #   text = args.shift unless block_given?
-    #   options = canonicalize_options(args.extract_options!)
-    #   options = ensure_class(options, 'alert')
-    #   options = add_alert_classes(options, args)
-    #   heading = options.delete(:heading)
-    #   show_close = options.delete(:close) != false 
-    # 
-    #   if block_given?
-    #     content_tag(:div, options) do
-    #       alert_close(show_close) + 
-    #       alert_heading(heading) + 
-    #       capture(&block)
-    #     end
-    #   else
-    #     content_tag(:div, options) do
-    #       alert_close(show_close) + 
-    #       alert_heading(heading) + 
-    #       text
-    #     end
-    #   end
-    # end
-def h(s); helper.send(:h, s).inspect;end
 
     it "default" do
       html = alert('foo')

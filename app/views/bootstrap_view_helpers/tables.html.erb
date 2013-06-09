@@ -1,0 +1,51 @@
+<h1>Tables</h1>
+
+<p><%= link_to('Bootstrap Documentation', 'http://twitter.github.io/bootstrap/base-css.html#tables') %>
+  
+<p>When all your tables are the same, don't keep repeating the bootstrap table classes.</p>
+
+<p>Instead of this repeated for every table:</p>
+
+<pre>
+ <%=h %(<table class='table table-bordered table-striped table-hover'>
+   ...
+ </table>) %>
+</pre>
+
+<p>do this instead</p>
+<%= bvh_show_source('bootstrap_view_helpers/_table_default') %>
+
+<h2>Example</h2>
+<%= render partial: 'table_example' %>
+
+<h2>Source</h2>
+<%= bvh_show_source('bootstrap_view_helpers/_table_example') %>
+
+
+<h2>Configuration</h2>
+
+<p>Change the default table classes (e.g., in an initializer):</p>
+<pre>
+Bootstrap::TableHelper.classes[:default] = ['table', 'table-hover']
+</pre>
+
+<p>Define named sets of classes:<p>
+<pre>
+Bootstrap::TableHelper.classes[:user]  = ['user', 'table', 'table-striped', 'table-hover']
+Bootstrap::TableHelper.classes[:admin] = ['admin', 'table', 'table-striped', 'table-hover', 'table-bordered', 'table-compact']
+</pre>
+
+<p>Specify the name when you call the helper:</p>
+<%= bvh_show_source('bootstrap_view_helpers/_table_with_class') %>
+
+<h2>Other HTML Attributes</h2>
+<p>Unrecognized options become html attributes of the table:<p>
+
+<pre>
+# this call
+bs_table_tag(id: 'my-id', class: 'another-class')
+
+# produces
+<%=h %(<table class="other-class table table-bordered table-striped table-hover" id="my-id">) %>
+
+</pre>
