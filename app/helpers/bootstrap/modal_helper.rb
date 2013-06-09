@@ -1,20 +1,5 @@
-# Rails helper for producing consistent Bootstrap styled tables.
+# Rails helper for producing Bootstrap modal dialogs
 #
-# @example
-#   # in your view
-#
-#   <%= bs_table_tag do %>
-#     ...
-#
-#   <%= bs_table_tag(id: 'my-id', class: 'another-class') do %>
-#     ...
-#
-#   # configure a custom set of classes:
-#   Bootstrap::TableHelper.classes[:admin] = %w(admin table table-striped table-compact)
-#   
-#   <%= bs_table_tag(:admin) do %>
-#
-#   
 module Bootstrap::ModalHelper
 
   # Returns an A tag to trigger (open) a Boostrap modal

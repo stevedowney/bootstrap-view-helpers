@@ -3,6 +3,7 @@
 ## v 0.0.12
 
 * added `modal` and `modal_trigger` for Bootstrap modal dialogs
+* added `modal_alert` and `modal_confirm` which work similarly to their Javascript counterparts
 * added `flash_messages` helper for flash support
 
 ## v 0.0.11

@@ -50,6 +50,12 @@ describe BootstrapViewHelpersController do
     end
   end
   
+  describe '#modals' do
+    it "ok" do
+      visit bvh_path('modal')
+    end
+  end
+  
   describe 'nav helpers' do
     it "ok" do
       visit bvh_path

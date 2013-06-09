@@ -12,6 +12,10 @@ Includes support for:
   * navigation
     * nav bar
     * nav list
+  * modal dialogs
+    * modal_trigger
+    * modal_alert
+    * modal_confirm
   * icons
     * icons with text 
   * buttons
@@ -108,6 +112,64 @@ Complete [API documentation](http://rubydoc.info/gems/bootstrap-view-helpers/fra
   <%= nav_list_header('Buttons & Labels') %>
   <%= dropdown_item('Buttons', 'butons')%>
   <%= dropdown_item('Labels', 'butons')%>
+<% end %>
+```
+
+### Modal Dailogs an Friends
+
+#### Simple Example Using Defaults
+
+```erb
+<%= modal_trigger("Click to show modal", href: '#modal-1') %>
+
+<%= modal(id: 'modal-1') do %>
+  <%= modal_header("Heading") %>
+  <%= modal_body("The body ...") %>
+  <%= modal_footer %>
+<% end %>
+```
+
+#### Block From Using Other Modal Helpers
+
+```erb
+<%= modal_trigger("Click to show modal", href: '#modal-2', class: 'btn btn-primary') %>
+
+<%= modal(id: 'modal-2') do %>
+  <%= modal_header(close: false) do %>
+    Heading <small>(with no close button)</small>
+  <% end %>
+  <%= modal_body do %>
+    <h4>Modal Body</h4>
+    <p>With additional markup</p>
+  <% end %>
+  <%= modal_footer do %>
+    <%= button("Save", :primary) %>
+    <%= modal_footer_close_button("Dismiss") %>
+  <% end %>
+<% end %>
+```
+
+#### Modal Alert - Similar to JS Alert
+
+```erb
+<%= modal_trigger("Click to show Alert", href: '#alert') %>
+<%= modal_alert("Watch out", id: 'alert') %>
+
+<%= modal_trigger("Click to show Alert w/block", href: '#alert-block') %>
+<%= modal_alert(id: 'alert-block', header: 'Custom Header') do %>
+  This is some <b>bold</b> text from the <code>modal_alert</code> block.
+<% end %>
+```
+
+#### Modal Confirm - Similar to JS Confirm
+
+```erb
+<%= modal_trigger("Click to show Confirm", href: '#confirm') %>
+<%= modal_confirm("Watch out", id: 'confirm') %>
+
+<%= modal_trigger("Click to show Confirm w/block", href: '#confirm-block') %>
+<%= modal_confirm(id: 'confirm-block', header: 'Custom Header') do %>
+  This is some <b>bold</b> text from the <code>modal_confirm</code> block.
 <% end %>
 ```
 

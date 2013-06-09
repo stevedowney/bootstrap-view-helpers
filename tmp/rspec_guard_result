@@ -1,1 +1,9 @@
-
+./spec/features/bootstrap_view_helpers_controller_spec.rb:6
+./spec/helpers/bootstrap/alert_helper_spec.rb:56
+./spec/helpers/bootstrap/badge_helper_spec.rb:19
+./spec/helpers/bootstrap/button_helper_spec.rb:22
+./spec/helpers/bootstrap/form_helper_spec.rb:33
+./spec/helpers/bootstrap/form_helper_spec.rb:98
+./spec/helpers/bootstrap/stamp_helper_spec.rb:19
+./spec/helpers/bootstrap/table_helper_spec.rb:38
+./spec/helpers/bootstrap/table_helper_spec.rb:48
