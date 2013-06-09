@@ -29,7 +29,10 @@ Includes support for:
     * submit_tag_button
     * cancel_tag_button
   * alerts
+  * table helper
   
+For the complete list of available helpers see the [API documentation](http://rubydoc.info/gems/bootstrap-view-helpers/frames/file/README.md).
+
 ## Note
 
 This is a new gem undergoing a lot of change.  There is a chance that some backwards
@@ -301,4 +304,38 @@ cancel_button_tag('Return', :small, :warning, url: '/', id: 'my-id')
 
 Bootstrap::FlashHelper.mapping[:notice] = :success
 Bootstrap::FlashHelper.mapping[:mistake] = :error
+```
+
+### Table Helper
+
+* [API Documentation](http://rubydoc.info/gems/bootstrap-view-helpers/Bootstrap/TableHelper)
+* [Bootstrap Documentation](http://twitter.github.io/bootstrap/base-css.html#tables)
+
+Don't keep repeating the Bootstrap table classes:
+
+```erb
+# instead of
+<table class='table table-bordered table-striped table-hover'>
+  ...
+</table>
+
+# do this
+<%= bs_table_tag do %>
+  ...
+<% end %>
+```
+
+Customize the classes used (e.g. in an initializer):
+
+```ruby
+# change the default
+Bootstrap::TableHelper.class_lists[:default] = 'table table-striped'
+
+# create a custom class list
+Bootstrap::TableHelper.class_lists[:admin] = 'admin table table-striped table-compact'
+
+# use the custom list
+<%= bs_table_tag(:admin) do %>
+  ...
+<% end %>
 ```
