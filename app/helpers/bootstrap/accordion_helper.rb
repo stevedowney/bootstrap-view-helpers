@@ -41,7 +41,7 @@ module Bootstrap::AccordionHelper
   # @option options [true] :parent Set to +false+ if you want to enable multiple groups to be open at the same time
   # @yield Html contents of accordion group
   # @yieldreturn [String] Html for accordion group contents
-  def my_accordion_group(text, options={})
+  def accordion_group(text, options={})
     options = canonicalize_options(options)
     open = options.delete(:open)
     parent = options.delete(:parent)
@@ -52,13 +52,13 @@ module Bootstrap::AccordionHelper
     options = ensure_class(options, 'accordion-group')
 
     content_tag(:div, options) do
-      my_accordion_group_heading(text, parent) + accordion_group_body(open) { yield }
+      accordion_group_heading(text, parent) + accordion_group_body(open) { yield }
     end
   end
   
   private
 
-  def my_accordion_group_heading(text, parent)
+  def accordion_group_heading(text, parent)
     selector = parent ? @accordion_id : nil
     content_tag(:div, class: 'accordion-heading') do
       content_tag(:a, text, class: %(accordion-toggle), href: "##{@accordion_group_id}",
