@@ -67,7 +67,7 @@ describe Bootstrap::AccordionHelper do
   describe '#accordion, with multiple groups open at same time' do
     let(:accordion) do
       helper.accordion do
-        helper.accordion_group('Group', { parent: false }) do
+        helper.accordion_group('Group', parent: false) do
           content_tag(:span, 'content')
         end
       end
