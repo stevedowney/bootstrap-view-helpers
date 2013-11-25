@@ -59,7 +59,7 @@ module Bootstrap::AccordionHelper
   private
 
   def accordion_group_heading(text, parent)
-    selector = parent ? @accordion_id : nil
+    selector = parent == false ? nil : @accordion_id
     content_tag(:div, class: 'accordion-heading') do
       content_tag(:a, text, class: %(accordion-toggle), href: "##{@accordion_group_id}",
                   data: {toggle: 'collapse', parent: "##{selector}" })
