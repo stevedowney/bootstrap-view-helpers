@@ -80,7 +80,6 @@ describe Bootstrap::AccordionHelper do
           group.find('div.accordion-heading').tap do |heading|
             selector = [
               'a.accordion-toggle',
-              '[data-parent="#"]',
               '[data-toggle="collapse"]',
               '[href="#accordion-1-group-1"]'
             ].join
