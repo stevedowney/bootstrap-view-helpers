@@ -47,7 +47,7 @@ module Bootstrap::AlertHelper
   #
   # @return [String] html for alert close button unless _show_ is +false+
   def alert_close(show=true)
-    return '' unless show
+    return ''.html_safe unless show
     content_tag(:button, '&times;'.html_safe, class: 'close', data: {dismiss: 'alert'})
   end
 
@@ -55,7 +55,7 @@ module Bootstrap::AlertHelper
   #
   # @return [String] html for alert heading unless _heading_ is blank.
   def alert_heading(heading)
-    return '' unless heading.present?
+    return ''.html_safe unless heading.present?
     content_tag(:h4, heading)
   end
   

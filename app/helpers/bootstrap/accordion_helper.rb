@@ -38,30 +38,36 @@ module Bootstrap::AccordionHelper
   # @param [String] text the text in the accordion group header
   # @param [Hash] options All keys except +:open+ become html attributes for the accordion group
   # @option options [true] :open Set to +true+ if you want this group initially open
+  # @option options [true] :parent Set to +false+ if you want to enable multiple groups to be open at the same time
   # @yield Html contents of accordion group
   # @yieldreturn [String] Html for accordion group contents
   def accordion_group(text, options={})
     options = canonicalize_options(options)
     open = options.delete(:open)
+    parent = options.delete(:parent)
 
     # options = ensure_accordion_group_id(options)
     @accordion_group_id = get_next_group_id
 
     options = ensure_class(options, 'accordion-group')
-    
+
     content_tag(:div, options) do
-      accordion_group_heading(text) + accordion_group_body(open) { yield }
+      accordion_group_heading(text, parent) + accordion_group_body(open) { yield }
     end
   end
   
   private
-  
-  def accordion_group_heading(text)
+
+  def accordion_group_heading(text, parent)
+    options = {}
+    options[:toggle] = 'collapse'
+    options[:parent] = "##{@accordion_id}" unless parent == false
+
     content_tag(:div, class: 'accordion-heading') do
-      content_tag(:a, text, class: %(accordion-toggle), href: "##{@accordion_group_id}", data: {toggle: 'collapse', parent: "##{@accordion_id}" })
+      content_tag(:a, text, class: %(accordion-toggle), href: "##{@accordion_group_id}", data: options)
     end
   end
-  
+
   def accordion_group_body(open)
     classes = %w(accordion-body collapse)
     classes << 'in' if open

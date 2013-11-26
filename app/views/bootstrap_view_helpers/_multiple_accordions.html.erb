@@ -1,0 +1,15 @@
+<%= accordion do %>
+
+  <%= accordion_group('Collapsible Group Item #1',  parent: false) do %>
+    One
+  <% end %>
+  
+  <%= accordion_group('Collapsible Group Item #2', open: true, parent: false) do %>
+    Two
+  <% end %>
+  
+  <%= accordion_group('Collapsible Group Item #3', parent: false) do %>
+    Three
+  <% end %>
+  
+<% end %>
